@@ -14,36 +14,36 @@ const services = [
   {
     number: "03",
     title: "Body hair removal",
-    text: "Personalized treatment for underarms, chest, abdomen, back, shoulders, arms, hands, bikini line, legs, and feet.",
+    text: "Personalized treatment for underarms, chest, abdomen, back, shoulders, arms, hands, legs, and feet.",
     note: "All skin tones",
   },
   {
     number: "04",
     title: "Hormonal hair concerns",
-    text: "Respectful hair-removal support for growth associated with PCOS, menopause, pregnancy, medication, or other hormonal changes.",
+    text: "Respectful hair-removal support for growth associated with PCOS, menopause, medication, or other hormonal changes.",
     note: "Hair care—not medical care",
   },
   {
     number: "05",
     title: "Gender-affirming care",
-    text: "An affirming, discreet setting for facial and body goals, including ongoing clearance plans tailored to your timeline.",
+    text: "An affirming, discreet setting for facial and selected body-area goals, with a treatment plan tailored to your timeline.",
     note: "Every identity welcome",
   },
   {
     number: "06",
-    title: "Pre-operative clearance",
-    text: "Planned support for clients following a surgeon’s written hair-clearance protocol, with documentation options at launch.",
-    note: "Consultation required",
+    title: "Grooming & active lifestyles",
+    text: "Considered care for athletes and clients who prefer less hair on the neckline, shoulders, chest, back, arms, or legs.",
+    note: "Personal goals · never gendered",
   },
   {
     number: "07",
-    title: "Precision clean-up",
+    title: "Precision detailing",
     text: "Focused sessions for beard lines, brow shaping, stray hairs, and areas prone to recurring ingrown hairs from other methods.",
     note: "Small areas welcome",
   },
   {
     number: "08",
-    title: "Extended clearances",
+    title: "Extended sessions",
     text: "Longer appointments for dense or larger areas, scheduled only after we understand your skin response and comfort needs.",
     note: "90–120 minute option",
   },
@@ -51,6 +51,7 @@ const services = [
 
 const areas = [
   "Brows & between brows",
+  "Hairline & temples",
   "Upper lip",
   "Chin & jawline",
   "Cheeks & sideburns",
@@ -60,7 +61,6 @@ const areas = [
   "Chest & abdomen",
   "Arms & hands",
   "Underarms",
-  "Bikini line",
   "Legs & feet",
 ];
 
@@ -103,9 +103,9 @@ const faqs = [
       "No. This future studio is designed specifically for licensed electrology. California places laser treatment outside an electrologist’s scope of practice, so the service menu is intentionally focused on probe-based electrolysis.",
   },
   {
-    question: "Will you accept insurance?",
+    question: "How will hygiene and sterilization be handled?",
     answer:
-      "Insurance and documentation policies are still being developed. Coverage varies by plan and medical-necessity requirements. Final payment, cancellation, and documentation policies will be published before booking opens.",
+      "At opening, every client will be treated with a sterile, single-use, pre-sterilized probe. Reusable electrology instruments will be cleaned, packaged, and sterilized using California Board-compliant equipment and procedures, with careful hand hygiene and surface disinfection between appointments.",
   },
 ];
 
@@ -155,8 +155,8 @@ export default function Home() {
               <em>in your skin.</em>
             </h1>
             <p className="hero-lede">
-              Thoughtful, one-follicle-at-a-time care for every skin tone, every hair color,
-              and every reason you’re ready for a lasting change.
+              Thoughtful, one-follicle-at-a-time care for every skin tone and hair color,
+              with a treatment plan tailored to your goals.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#contact">
@@ -168,7 +168,7 @@ export default function Home() {
               </a>
             </div>
             <p className="hero-fineprint">
-              Future private studio serving American Canyon, Vallejo, Napa, Benicia,
+              Future private studio suite serving American Canyon, Vallejo, Napa, Benicia,
               Fairfield, and nearby communities.
             </p>
           </div>
@@ -183,7 +183,7 @@ export default function Home() {
             </div>
             <div className="floating-note note-top">
               <span className="note-kicker">Designed for</span>
-              <strong>every tone + texture</strong>
+              <strong>every skin tone and hair color</strong>
             </div>
             <div className="floating-note note-bottom">
               <span className="note-kicker">Planned modalities</span>
@@ -215,12 +215,12 @@ export default function Home() {
         <section className="section services-section" id="services" aria-labelledby="services-title">
           <div className="section-heading heading-split">
             <div>
-              <p className="eyebrow">The full service menu</p>
+              <p className="eyebrow">Planned services</p>
               <h2 id="services-title">One method.<br />Many reasons.</h2>
             </div>
             <p>
-              We’re starting broad so you can decide what belongs in the final launch menu.
-              Every service begins with clear expectations and a plan tailored to the client.
+              A considered menu for facial and selected body areas. Every service begins
+              with clear expectations and an individualized treatment plan.
             </p>
           </div>
 
@@ -229,7 +229,6 @@ export default function Home() {
               <article className="service-card" key={service.number}>
                 <div className="service-card-top">
                   <span>{service.number}</span>
-                  <span className="service-arrow" aria-hidden="true">↗</span>
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
@@ -241,11 +240,11 @@ export default function Home() {
 
         <section className="area-section" aria-labelledby="areas-title">
           <div className="area-intro">
-            <p className="eyebrow eyebrow-light">Face to feet</p>
-            <h2 id="areas-title">If the hair is unwanted,<br /><em>it deserves a conversation.</em></h2>
+            <p className="eyebrow eyebrow-light">Treatment areas</p>
+            <h2 id="areas-title">Precision for the face.<br /><em>Considered care for the body.</em></h2>
             <p>
-              Electrolysis can address small detail areas and larger clearances alike. Sensitive
-              and pre-operative areas are discussed privately during consultation.
+              Electrolysis can address fine facial details and larger selected body areas
+              alike, with appointment length and technique tailored to the individual.
             </p>
           </div>
           <div className="area-list" aria-label="Common treatment areas">
@@ -262,7 +261,7 @@ export default function Home() {
           <div className="section-heading centered-heading">
             <p className="eyebrow">What to expect</p>
             <h2 id="process-title">A calm path to permanent.</h2>
-            <p>No hard sell. No miracle timeline. Just a plan you understand.</p>
+            <p>Clear guidance, realistic timelines, and a treatment plan you understand.</p>
           </div>
 
           <div className="process-grid">
@@ -278,13 +277,13 @@ export default function Home() {
             </article>
             <article>
               <span className="process-number">3</span>
-              <h3>Build your rhythm</h3>
+              <h3>Establish a cadence</h3>
               <p>We recommend appointment lengths and frequency based on the area, density, growth cycle, and your real-life availability.</p>
             </article>
             <article>
               <span className="process-number">4</span>
-              <h3>Clear, then refine</h3>
-              <p>Consistent treatment catches hairs across growth cycles. As regrowth decreases, appointments become shorter and less frequent.</p>
+              <h3>Progress through each cycle</h3>
+              <p>Consistent treatment reaches hairs across growth cycles. As progress continues, appointment length and frequency can often be reduced.</p>
             </article>
           </div>
 
@@ -309,7 +308,7 @@ export default function Home() {
         <section className="appointments-section" aria-labelledby="appointments-title">
           <div className="appointments-copy">
             <p className="eyebrow eyebrow-light">Straightforward scheduling</p>
-            <h2 id="appointments-title">Time-based appointments.<br /><em>No mystery packages.</em></h2>
+            <h2 id="appointments-title">Time-based appointments.<br /><em>Clearly explained.</em></h2>
             <p>
               Most established electrology practices price by time because each client’s density,
               area, and goals differ. Final launch rates will be published before booking opens.
@@ -330,30 +329,37 @@ export default function Home() {
           <div className="about-portrait" aria-hidden="true">
             <div className="portrait-sun" />
             <div className="portrait-arch">
-              <span>Practitioner<br />photo here</span>
+              <span className="portrait-initial">N</span>
             </div>
             <p>American Canyon<br />California</p>
           </div>
           <div className="about-copy">
-            <p className="eyebrow">Meet your electrologist</p>
-            <h2 id="about-title">Care that feels<br /><em>precise and personal.</em></h2>
+            <p className="eyebrow">Meet Nav</p>
+            <h2 id="about-title">A scientific foundation.<br /><em>A personal approach.</em></h2>
             <p className="about-lede">
-              <strong>[Practitioner name]</strong> is currently completing professional electrology
-              training and thoughtfully planning a private American Canyon studio.
+              <strong>Nav</strong> earned her bachelor’s degree in Microbiology from UC Davis and
+              is completing professional electrology training at the California Electrology
+              Academy in Corona.
             </p>
             <p>
-              The future practice is being designed around the things clients consistently value:
-              clear education, unhurried conversation, rigorous infection-control standards,
-              inclusive care, and recommendations grounded in realistic hair-growth cycles.
+              Her background in microbiology shaped a lasting respect for skin health,
+              infection control, careful observation, and evidence-minded decision-making.
+              Electrology gives her a way to bring that precision into a highly personal form
+              of care—one grounded in patience, candid education, and realistic hair-growth cycles.
             </p>
-            <blockquote>
-              “My goal is for every client to feel informed, respected, and completely at ease
-              asking for what they need.”
-            </blockquote>
-            <div className="credential-list" aria-label="Credentials to add before launch">
-              <span>CA electrologist license # [pending]</span>
-              <span>Advanced certifications [add later]</span>
-              <span>Professional memberships [add later]</span>
+            <p>
+              Nav is planning a polished salon or commercial suite in American Canyon, designed
+              for calm, one-on-one appointments where every client can feel informed, respected,
+              and comfortable asking questions.
+            </p>
+            <div className="principle-card">
+              <span>Nav’s approach</span>
+              <p>Science-minded care, candid guidance, and a treatment plan shaped around the individual—not a template.</p>
+            </div>
+            <div className="credential-list" aria-label="Nav's education and pending credentials">
+              <span>Microbiology · UC Davis</span>
+              <span>Electrology · California Electrology Academy</span>
+              <span>California electrologist license · Pending</span>
             </div>
           </div>
         </section>
@@ -403,7 +409,7 @@ export default function Home() {
             </div>
             <div>
               <span>Studio</span>
-              <p>[Street address]<br />American Canyon, CA 94503</p>
+              <p>[Salon or commercial suite]<br />American Canyon, CA 94503</p>
             </div>
             <div>
               <span>Hours</span>
@@ -421,7 +427,7 @@ export default function Home() {
         <p>Permanent hair removal, thoughtfully done.</p>
         <div className="footer-meta">
           <span>© 2026 Canyon &amp; Vine Electrology</span>
-          <span>Mockup · Booking opens after licensure</span>
+          <span>Pre-opening concept · Booking opens after licensure</span>
         </div>
       </footer>
     </main>

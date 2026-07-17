@@ -34,10 +34,15 @@ test("server-renders the Canyon & Vine concept site", async () => {
   assert.match(html, /Feel at home/);
   assert.match(html, /Consultation &amp; test session/);
   assert.match(html, /Gender-affirming care/);
-  assert.match(html, /Pre-operative clearance/);
-  assert.match(html, /Mockup · Booking opens after licensure/);
+  assert.match(html, /Grooming &amp; active lifestyles/);
+  assert.match(html, /Microbiology from UC Davis/);
+  assert.match(html, /California Electrology Academy/);
+  assert.match(html, /Pre-opening concept · Booking opens after licensure/);
   assert.match(html, /name="robots" content="noindex, nofollow"/i);
-  assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
+  assert.doesNotMatch(
+    html,
+    /codex-preview|react-loading-skeleton|bikini|intimate|pre-operative|surgeon|surgical clearance/i,
+  );
 });
 
 test("removes starter preview code and dependency", async () => {

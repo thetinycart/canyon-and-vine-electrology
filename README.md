@@ -8,12 +8,13 @@ and California licensure.
 ## What the mockup includes
 
 - opening-soon positioning that does not imply current licensure
-- face, body, hormonal-hair, gender-affirming, pre-operative, precision, and
-  extended-clearance service concepts
+- face, selected body, hormonal-hair, gender-affirming, grooming, precision,
+  and extended-session service concepts
 - common treatment areas and the three electrology modalities
 - consultation and treatment-plan journey
 - time-based appointment structure without invented launch pricing
-- practitioner, FAQ, and placeholder contact sections
+- Nav’s education and science-informed practitioner story, FAQ, and placeholder
+  contact sections
 - responsive layouts, keyboard focus states, reduced-motion support, and
   `noindex` metadata for pre-launch review
 

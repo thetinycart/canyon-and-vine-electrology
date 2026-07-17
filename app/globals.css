@@ -14,8 +14,8 @@
   --paper: #fffdf9;
   --sage: #8f9b88;
   --line: rgba(58, 32, 44, 0.16);
-  --serif: Georgia, "Times New Roman", serif;
-  --sans: Arial, Helvetica, sans-serif;
+  --serif: Baskerville, Georgia, "Times New Roman", serif;
+  --sans: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -106,16 +106,16 @@ summary {
 .brand-mark {
   align-items: center;
   background: var(--plum);
-  border-radius: 50% 50% 46% 54%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
   color: var(--petal);
   display: inline-flex;
   font-family: var(--serif);
-  font-size: 0.82rem;
-  font-style: italic;
+  font-size: 0.68rem;
+  font-style: normal;
   height: 38px;
   justify-content: center;
-  letter-spacing: -0.05em;
-  transform: rotate(-8deg);
+  letter-spacing: 0.06em;
   width: 38px;
 }
 
@@ -556,11 +556,6 @@ h2 em {
   justify-content: space-between;
 }
 
-.service-arrow {
-  font-family: var(--sans);
-  font-style: normal;
-}
-
 .service-card h3 {
   font-family: var(--serif);
   font-size: 1.65rem;
@@ -916,6 +911,15 @@ h2 em {
   text-align: center;
 }
 
+.portrait-arch .portrait-initial {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(7rem, 14vw, 12rem);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+
 .about-portrait > p {
   bottom: 1.5rem;
   color: rgba(255,255,255,0.65);
@@ -943,16 +947,30 @@ h2 em {
   max-width: 720px;
 }
 
-.about-copy blockquote {
+.principle-card {
+  background: var(--oat);
   border-left: 2px solid var(--rose);
+  margin: 2.5rem 0;
+  max-width: 760px;
+  padding: 1.4rem 1.6rem 1.5rem;
+}
+
+.principle-card > span {
+  color: var(--rose-dark);
+  display: block;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.principle-card p {
   color: var(--plum);
   font-family: var(--serif);
-  font-size: clamp(1.25rem, 2vw, 1.8rem);
-  font-style: italic;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
   line-height: 1.45;
-  margin: 2.5rem 0;
-  max-width: 720px;
-  padding-left: 1.6rem;
+  margin: 0;
 }
 
 .credential-list {
