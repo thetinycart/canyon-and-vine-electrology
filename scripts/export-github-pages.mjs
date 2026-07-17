@@ -14,7 +14,10 @@ const owner =
   process.env.GITHUB_REPOSITORY?.split("/").at(0) ??
   "thetinycart";
 const basePath = `/${repository}`;
-const siteUrl = `https://${owner}.github.io${basePath}`;
+const pagesUrl = `https://${owner}.github.io${basePath}`;
+const publicSiteUrl =
+  process.env.PUBLIC_SITE_URL ??
+  "https://tycheventuresllc.com/canyon-and-vine-electrology";
 
 const workerUrl = pathToFileURL(
   path.join(projectRoot, "dist", "server", "index.js"),
@@ -50,15 +53,15 @@ html = html
   .replaceAll('src="/assets/', `src="${basePath}/assets/`)
   .replace(
     /(<meta property="og:image" content=")[^"]+("\/?>)/,
-    `$1${siteUrl}/og.png$2`,
+    `$1${publicSiteUrl}/og.png$2`,
   )
   .replace(
     /(<meta name="twitter:image" content=")[^"]+("\/?>)/,
-    `$1${siteUrl}/og.png$2`,
+    `$1${publicSiteUrl}/og.png$2`,
   )
   .replace(
-    "</head>",
-    `<link rel="canonical" href="${siteUrl}/"/></head>`,
+    /(<link rel="canonical" href=")[^"]+("\/?>)/,
+    `$1${publicSiteUrl}/$2`,
   );
 
 await rm(outputDirectory, { recursive: true, force: true });
@@ -76,4 +79,4 @@ await writeFile(path.join(outputDirectory, "index.html"), html);
 await writeFile(path.join(outputDirectory, "404.html"), html);
 await writeFile(path.join(outputDirectory, ".nojekyll"), "");
 
-console.log(`GitHub Pages export created for ${siteUrl}/`);
+console.log(`GitHub Pages export created for ${pagesUrl}/`);

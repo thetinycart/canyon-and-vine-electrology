@@ -23,25 +23,34 @@ async function render() {
   );
 }
 
-test("server-renders the Canyon & Vine concept site", async () => {
+test("server-renders the launch-ready Canyon & Vine site", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
   assert.match(html, /<title>Canyon &amp; Vine Electrology \| American Canyon, CA<\/title>/i);
-  assert.match(html, /Coming Spring 2027/);
+  assert.match(html, /Now welcoming clients/);
   assert.match(html, /Feel at home/);
   assert.match(html, /Consultation &amp; test session/);
   assert.match(html, /Gender-affirming care/);
   assert.match(html, /Grooming &amp; active lifestyles/);
   assert.match(html, /Microbiology from UC Davis/);
   assert.match(html, /California Electrology Academy/);
-  assert.match(html, /Coming Spring 2027 · American Canyon/);
-  assert.match(html, /name="robots" content="noindex, nofollow"/i);
+  assert.match(html, /California-licensed electrologist/);
+  assert.match(html, /American Canyon · By appointment/);
+  assert.match(html, /License # \[ADD NUMBER\]/);
+  assert.match(html, /Intimate-area services are not offered/);
+  assert.match(html, /Three forms of electrolysis/);
+  assert.match(
+    html,
+    /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/"/i,
+  );
+  assert.doesNotMatch(html, /name="robots" content="noindex, nofollow"/i);
+  assert.doesNotMatch(html, /nofollow/i);
   assert.doesNotMatch(
     html,
-    /codex-preview|react-loading-skeleton|bikini|intimate|pre-operative|surgeon|surgical clearance|license · Pending|opening after licensure/i,
+    /codex-preview|react-loading-skeleton|bikini|pre-operative|surgeon|surgical clearance|license · Pending|opening after licensure|Coming Spring 2027|future studio|planned services|At opening/i,
   );
 });
 
@@ -53,7 +62,7 @@ test("removes starter preview code and dependency", async () => {
   ]);
 
   assert.match(page, /Canyon &amp; Vine/);
-  assert.match(layout, /robots:/);
+  assert.doesNotMatch(layout, /robots:/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
   assert.doesNotMatch(layout, /Starter Project|codex-preview/);

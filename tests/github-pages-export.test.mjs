@@ -3,7 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const expectedUrl =
-  "https://thetinycart.github.io/canyon-and-vine-electrology";
+  "https://tycheventuresllc.com/canyon-and-vine-electrology";
 
 test("exports a self-contained GitHub Pages site", async () => {
   const html = await readFile(
@@ -11,16 +11,27 @@ test("exports a self-contained GitHub Pages site", async () => {
     "utf8",
   );
 
-  assert.match(html, /Coming Spring 2027/);
+  assert.match(html, /Now welcoming clients/);
   assert.match(
     html,
     /href="\/canyon-and-vine-electrology\/assets\/index-[^"]+\.css"/,
   );
   assert.match(html, new RegExp(`${expectedUrl}/og\\.png`));
   assert.match(html, new RegExp(`rel="canonical" href="${expectedUrl}/"`));
+  assert.match(
+    html,
+    new RegExp(`name="twitter:image" content="${expectedUrl}/og\\.png"`),
+  );
+  assert.equal((html.match(/rel="canonical"/g) ?? []).length, 1);
   assert.doesNotMatch(html, /<script\b/i);
   assert.doesNotMatch(html, /rel="modulepreload"/i);
   assert.doesNotMatch(html, /(?:href|src)="\/assets\//);
+  assert.doesNotMatch(html, /name="robots" content="noindex, nofollow"/i);
+  assert.doesNotMatch(html, /nofollow/i);
+  assert.doesNotMatch(
+    html,
+    /thetinycart\.github\.io|canyon-and-vine-electrology\.sukhpalc\.chatgpt\.site/i,
+  );
 
   await Promise.all([
     access(new URL("../github-pages/og.png", import.meta.url)),

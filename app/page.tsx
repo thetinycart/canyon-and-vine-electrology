@@ -3,7 +3,7 @@ const services = [
     number: "01",
     title: "Consultation & test session",
     text: "A private conversation about your goals, hair-growth history, treatment areas, and a plan that fits your schedule.",
-    note: "Complimentary at opening",
+    note: "Details confirmed at booking",
   },
   {
     number: "02",
@@ -26,7 +26,7 @@ const services = [
   {
     number: "05",
     title: "Gender-affirming care",
-    text: "An affirming, discreet setting for facial and selected body-area goals, with a treatment plan tailored to your timeline.",
+    text: "An affirming, discreet setting for facial and listed non-intimate body-area goals, with a treatment plan tailored to your timeline.",
     note: "Every identity welcome",
   },
   {
@@ -45,7 +45,7 @@ const services = [
     number: "08",
     title: "Extended sessions",
     text: "Longer appointments for dense or larger areas, scheduled only after we understand your skin response and comfort needs.",
-    note: "90–120 minute option",
+    note: "Available by arrangement",
   },
 ];
 
@@ -100,12 +100,12 @@ const faqs = [
   {
     question: "Do you offer laser hair removal?",
     answer:
-      "No. This future studio is designed specifically for licensed electrology. California places laser treatment outside an electrologist’s scope of practice, so the service menu is intentionally focused on probe-based electrolysis.",
+      "No. Canyon & Vine is dedicated specifically to licensed electrology. California places laser treatment outside an electrologist’s scope of practice, so the service menu is intentionally focused on probe-based electrolysis.",
   },
   {
     question: "How will hygiene and sterilization be handled?",
     answer:
-      "At opening, every client will be treated with a sterile, single-use, pre-sterilized probe. Reusable electrology instruments will be cleaned, packaged, and sterilized using California Board-compliant equipment and procedures, with careful hand hygiene and surface disinfection between appointments.",
+      "Every treatment uses a new, single-use, pre-sterilized disposable probe. Reusable electrology tools are cleaned, packaged, and sterilized in accordance with California Board requirements. Hands are cleaned immediately before each client, and treatment surfaces are cleaned and disinfected between appointments.",
   },
 ];
 
@@ -117,7 +117,7 @@ export default function Home() {
       </a>
 
       <div className="announcement">
-        <span>Coming Spring 2027</span>
+        <span>Now welcoming clients</span>
         <span className="announcement-dot" aria-hidden="true" />
         <span>American Canyon, CA</span>
       </div>
@@ -141,7 +141,7 @@ export default function Home() {
         </nav>
 
         <a className="button button-small button-dark" href="#contact">
-          Join the opening list
+          Request a consultation
         </a>
       </header>
 
@@ -160,7 +160,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#contact">
-                Get opening updates
+                Request a consultation
                 <span aria-hidden="true">↗</span>
               </a>
               <a className="text-link" href="#process">
@@ -168,7 +168,7 @@ export default function Home() {
               </a>
             </div>
             <p className="hero-fineprint">
-              Future private studio suite serving American Canyon, Vallejo, Napa, Benicia,
+              Private studio suite serving American Canyon, Vallejo, Napa, Benicia,
               Fairfield, and nearby communities.
             </p>
           </div>
@@ -186,7 +186,7 @@ export default function Home() {
               <strong>every skin tone and hair color</strong>
             </div>
             <div className="floating-note note-bottom">
-              <span className="note-kicker">Planned modalities</span>
+              <span className="note-kicker">Electrolysis modalities</span>
               <strong>thermolysis · galvanic · blend</strong>
             </div>
             <span className="art-caption">Precision, patience, permanence.</span>
@@ -208,18 +208,18 @@ export default function Home() {
           </div>
           <div>
             <span className="trust-number">04</span>
-            <p><strong>Planned</strong> for Spring 2027</p>
+            <p><strong>Licensed</strong> California electrologist</p>
           </div>
         </section>
 
         <section className="section services-section" id="services" aria-labelledby="services-title">
           <div className="section-heading heading-split">
             <div>
-              <p className="eyebrow">Planned services</p>
+              <p className="eyebrow">Services</p>
               <h2 id="services-title">One method.<br />Many reasons.</h2>
             </div>
             <p>
-              A considered menu for facial and selected body areas. Every service begins
+              A considered menu for facial and non-intimate body areas. Every service begins
               with clear expectations and an individualized treatment plan.
             </p>
           </div>
@@ -245,6 +245,7 @@ export default function Home() {
             <p>
               Electrolysis can address fine facial details and larger selected body areas
               alike, with appointment length and technique tailored to the individual.
+              Intimate-area services are not offered.
             </p>
           </div>
           <div className="area-list" aria-label="Common treatment areas">
@@ -290,11 +291,12 @@ export default function Home() {
           <div className="method-card">
             <div className="method-copy">
               <p className="eyebrow">The technique</p>
-              <h3>Three modalities.<br />One personalized plan.</h3>
+              <h3>Three forms of electrolysis.<br />One personalized plan.</h3>
               <p>
-                Thermolysis uses heat, galvanic uses a chemical reaction created in the follicle,
-                and blend combines both. The appropriate approach depends on the hair, skin,
-                treatment area, and client response—not a trend.
+                Electrolysis can be performed with thermolysis, galvanic, or blend. Thermolysis
+                uses high-frequency current to generate heat, galvanic uses direct current to
+                create a chemical reaction in the follicle, and blend combines both. Nav selects
+                the approach based on the hair, skin, treatment area, and client response.
               </p>
             </div>
             <div className="method-list">
@@ -310,18 +312,19 @@ export default function Home() {
             <p className="eyebrow eyebrow-light">Straightforward scheduling</p>
             <h2 id="appointments-title">Time-based appointments.<br /><em>Clearly explained.</em></h2>
             <p>
-              Most established electrology practices price by time because each client’s density,
-              area, and goals differ. Final launch rates will be published before booking opens.
+              Electrology appointments are reserved by time because each client’s density, area,
+              and goals differ. Your recommended session length and current rate are confirmed
+              before booking.
             </p>
-            <div className="appointment-pills" aria-label="Planned appointment lengths">
+            <div className="appointment-pills" aria-label="Appointment lengths">
               {appointmentLengths.map((length) => <span key={length}>{length}</span>)}
             </div>
           </div>
           <div className="consult-card">
             <span className="consult-label">First visit</span>
-            <strong>20-minute consultation</strong>
+            <strong>Consultation &amp; test session</strong>
             <p>Goals review · treatment-area assessment · test session · personalized next step</p>
-            <span className="consult-price">Complimentary at opening</span>
+            <span className="consult-price">Details confirmed at booking</span>
           </div>
         </section>
 
@@ -338,17 +341,17 @@ export default function Home() {
             <h2 id="about-title">A scientific foundation.<br /><em>A personal approach.</em></h2>
             <p className="about-lede">
               <strong>Nav</strong> earned her bachelor’s degree in Microbiology from UC Davis and
-              is completing professional electrology training at the California Electrology
-              Academy in Corona.
+              completed her professional electrology training at California Electrology Academy
+              in Corona, California. She is a California-licensed electrologist.
             </p>
             <p>
-              Her background in microbiology shaped a lasting respect for skin health,
-              infection control, careful observation, and evidence-minded decision-making.
-              Electrology gives her a way to bring that precision into a highly personal form
-              of care—one grounded in patience, candid education, and realistic hair-growth cycles.
+              Her background in microbiology shaped a lasting respect for infection prevention,
+              careful observation, and evidence-informed decision-making. Electrology allows her
+              to bring that precision to highly personal care grounded in patience, candid
+              education, and realistic hair-growth cycles.
             </p>
             <p>
-              Nav is planning a polished salon or commercial suite in American Canyon, designed
+              Nav welcomes clients to a polished private suite in American Canyon, designed
               for calm, one-on-one appointments where every client can feel informed, respected,
               and comfortable asking questions.
             </p>
@@ -356,10 +359,10 @@ export default function Home() {
               <span>Nav’s approach</span>
               <p>Science-minded care, candid guidance, and a treatment plan shaped around the individual—not a template.</p>
             </div>
-            <div className="credential-list" aria-label="Nav's education and launch details">
+            <div className="credential-list" aria-label="Nav's education and professional credentials">
               <span>Microbiology · UC Davis</span>
-              <span>Electrology · California Electrology Academy</span>
-              <span>Opening · Spring 2027</span>
+              <span>Professional Electrology Training · California Electrology Academy</span>
+              <span>California Licensed Electrologist · License # [ADD NUMBER]</span>
             </div>
           </div>
         </section>
@@ -388,14 +391,14 @@ export default function Home() {
 
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div className="contact-copy">
-            <p className="eyebrow eyebrow-light">Opening list</p>
+            <p className="eyebrow eyebrow-light">Consultations</p>
             <h2 id="contact-title">Ready when<br /><em>you are.</em></h2>
             <p>
-              Get one email when consultations open. No promotions, no inbox clutter—just the
-              studio address, launch rates, and first available appointments.
+              To ask a question or request a consultation, get in touch by email. We’ll confirm
+              the treatment area, current rates, studio details, and an appointment time.
             </p>
-            <a className="button button-light" href="mailto:hello@example.com?subject=Canyon%20and%20Vine%20opening%20list">
-              Join by email <span aria-hidden="true">↗</span>
+            <a className="button button-light" href="mailto:hello@example.com?subject=Canyon%20and%20Vine%20consultation%20request">
+              Request by email <span aria-hidden="true">↗</span>
             </a>
           </div>
           <address className="contact-details">
@@ -409,11 +412,11 @@ export default function Home() {
             </div>
             <div>
               <span>Studio</span>
-              <p>[Salon or commercial suite]<br />American Canyon, CA 94503</p>
+              <p>[ADD SUITE ADDRESS]<br />American Canyon, CA 94503</p>
             </div>
             <div>
               <span>Hours</span>
-              <p>By appointment<br />Schedule coming soon</p>
+              <p>By appointment<br />[ADD BUSINESS HOURS]</p>
             </div>
           </address>
         </section>
@@ -426,8 +429,8 @@ export default function Home() {
         </a>
         <p>Permanent hair removal, thoughtfully done.</p>
         <div className="footer-meta">
-          <span>© 2026 Canyon &amp; Vine Electrology</span>
-          <span>Coming Spring 2027 · American Canyon</span>
+          <span>© 2027 Canyon &amp; Vine Electrology</span>
+          <span>American Canyon · By appointment</span>
         </div>
       </footer>
     </main>

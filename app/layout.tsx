@@ -5,6 +5,9 @@ import "./globals.css";
 const fallbackSiteUrl = new URL(
   "https://canyon-and-vine-electrology.sukhpalc.chatgpt.site",
 );
+const publicSiteUrl = new URL(
+  "https://tycheventuresllc.com/canyon-and-vine-electrology/",
+);
 
 async function getMetadataBase() {
   const requestHeaders = await headers();
@@ -29,12 +32,15 @@ export async function generateMetadata(): Promise<Metadata> {
   const metadataBase = await getMetadataBase();
   const socialImage = new URL("/og.png", metadataBase).toString();
   const description =
-    "Nav’s future private electrology studio serving American Canyon and the Napa–Solano community with refined, inclusive permanent hair removal care.";
+    "Nav’s private electrology studio serving American Canyon and the Napa–Solano community with refined, inclusive permanent hair removal care.";
 
   return {
     metadataBase,
     title: "Canyon & Vine Electrology | American Canyon, CA",
     description,
+    alternates: {
+      canonical: publicSiteUrl,
+    },
     keywords: [
       "electrolysis American Canyon",
       "electrologist Napa",
@@ -45,9 +51,10 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Canyon & Vine Electrology",
       description:
-        "Permanent hair removal, thoughtfully done. Coming Spring 2027 to American Canyon, California.",
+        "Permanent hair removal, thoughtfully done. Now welcoming clients in American Canyon, California.",
       type: "website",
       locale: "en_US",
+      url: publicSiteUrl,
       images: [
         {
           url: socialImage,
@@ -61,12 +68,8 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Canyon & Vine Electrology",
       description:
-        "Permanent hair removal, thoughtfully done. Coming Spring 2027 to American Canyon, California.",
+        "Permanent hair removal, thoughtfully done. Now welcoming clients in American Canyon, California.",
       images: [socialImage],
-    },
-    robots: {
-      index: false,
-      follow: false,
     },
   };
 }
