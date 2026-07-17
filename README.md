@@ -1,4 +1,4 @@
-# Canyon & Vine Electrology
+# Ever Green Electrology
 
 A responsive site for a private electrology practice in American Canyon,
 California. The site uses launch-ready business copy while the phone, email,

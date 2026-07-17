@@ -12,6 +12,8 @@ test("exports a self-contained GitHub Pages site", async () => {
   );
 
   assert.match(html, /Now welcoming clients/);
+  assert.match(html, /Ever Green Electrology/);
+  assert.doesNotMatch(html, /Canyon &amp; Vine|Canyon and Vine|>CV</);
   assert.match(
     html,
     /href="\/canyon-and-vine-electrology\/assets\/index-[^"]+\.css"/,

@@ -1,4 +1,4 @@
-name: Deploy Canyon & Vine to GitHub Pages
+name: Deploy Ever Green Electrology to GitHub Pages
 
 on:
   push:

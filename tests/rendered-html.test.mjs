@@ -23,13 +23,13 @@ async function render() {
   );
 }
 
-test("server-renders the launch-ready Canyon & Vine site", async () => {
+test("server-renders the launch-ready Ever Green site", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Canyon &amp; Vine Electrology \| American Canyon, CA<\/title>/i);
+  assert.match(html, /<title>Ever Green Electrology \| American Canyon, CA<\/title>/i);
   assert.match(html, /Now welcoming clients/);
   assert.match(html, /Feel at home/);
   assert.match(html, /Consultation &amp; test session/);
@@ -54,14 +54,19 @@ test("server-renders the launch-ready Canyon & Vine site", async () => {
   );
 });
 
-test("removes starter preview code and dependency", async () => {
-  const [page, layout, packageJson] = await Promise.all([
+test("uses the finished Ever Green brand and monochrome design system", async () => {
+  const [page, layout, styles, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /Canyon &amp; Vine/);
+  assert.match(page, /Ever Green/);
+  assert.doesNotMatch(page, /Canyon &amp; Vine|Canyon and Vine|>CV</);
+  assert.match(styles, /--ink: #0a0a0a/);
+  assert.match(styles, /--paper: #fdfdfb/);
+  assert.doesNotMatch(styles, /#b15f64|#8f464d|#f2d9d3|#efc9c3|#d9918f|#ad5b62/i);
   assert.doesNotMatch(layout, /robots:/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);

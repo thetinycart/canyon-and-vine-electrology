@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #241d21;
-  --ink-soft: #51464b;
-  --plum: #3a202c;
-  --plum-deep: #28131c;
-  --rose: #b15f64;
-  --rose-dark: #8f464d;
-  --blush: #f2d9d3;
-  --petal: #fbefeb;
-  --oat: #f5f0e8;
-  --cream: #fffaf4;
-  --paper: #fffdf9;
-  --sage: #8f9b88;
-  --line: rgba(58, 32, 44, 0.16);
+  --ink: #0a0a0a;
+  --ink-soft: #4c4c4c;
+  --plum: #111111;
+  --plum-deep: #050505;
+  --rose: #282828;
+  --rose-dark: #000000;
+  --blush: #dededb;
+  --petal: #f0f0ed;
+  --oat: #e8e8e4;
+  --cream: #f7f7f4;
+  --paper: #fdfdfb;
+  --sage: #8a8a86;
+  --line: rgba(0, 0, 0, 0.14);
   --serif: Baskerville, Georgia, "Times New Roman", serif;
   --sans: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 }
@@ -62,7 +62,7 @@ summary {
 .announcement {
   align-items: center;
   background: var(--plum-deep);
-  color: #f9ebe8;
+  color: #f4f4f2;
   display: flex;
   font-size: 0.67rem;
   font-weight: 700;
@@ -75,7 +75,7 @@ summary {
 }
 
 .announcement-dot {
-  background: var(--rose);
+  background: #bdbdb9;
   border-radius: 50%;
   height: 4px;
   width: 4px;
@@ -84,7 +84,7 @@ summary {
 .site-header {
   align-items: center;
   backdrop-filter: blur(16px);
-  background: rgba(255, 253, 249, 0.9);
+  background: rgba(253, 253, 251, 0.92);
   border-bottom: 1px solid var(--line);
   display: grid;
   gap: 2rem;
@@ -197,7 +197,7 @@ summary {
 .button:focus-visible,
 a:focus-visible,
 summary:focus-visible {
-  outline: 3px solid rgba(177, 95, 100, 0.42);
+  outline: 2px solid currentColor;
   outline-offset: 3px;
 }
 
@@ -259,7 +259,7 @@ summary:focus-visible {
 }
 
 .eyebrow-light {
-  color: #e9b7b2;
+  color: #d4d4d0;
 }
 
 .hero h1,
@@ -312,7 +312,7 @@ h2 em {
 }
 
 .hero-fineprint {
-  color: #71666b;
+  color: #616161;
   font-size: 0.74rem;
   line-height: 1.6;
   margin: 2.6rem 0 0;
@@ -322,8 +322,8 @@ h2 em {
 .hero-art {
   align-items: center;
   background:
-    radial-gradient(circle at 50% 45%, rgba(255, 249, 243, 0.82) 0 12%, transparent 13%),
-    linear-gradient(145deg, #efc9c3 0%, #d9918f 47%, #ad5b62 100%);
+    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.9) 0 12%, transparent 13%),
+    linear-gradient(145deg, #e7e7e4 0%, #9a9a98 47%, #242424 100%);
   display: flex;
   justify-content: center;
   min-height: 610px;
@@ -332,7 +332,7 @@ h2 em {
 }
 
 .hero-art::before {
-  background-image: radial-gradient(rgba(58, 32, 44, 0.2) 0.8px, transparent 0.8px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.18) 0.8px, transparent 0.8px);
   background-size: 18px 18px;
   content: "";
   inset: 0;
@@ -342,7 +342,7 @@ h2 em {
 }
 
 .hero-orbit {
-  border: 1px solid rgba(255, 248, 243, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.62);
   border-radius: 50%;
   position: absolute;
 }
@@ -359,7 +359,7 @@ h2 em {
 }
 
 .orbit-three {
-  border-color: rgba(58, 32, 44, 0.26);
+  border-color: rgba(0, 0, 0, 0.3);
   height: min(25vw, 285px);
   transform: translate(-10%, 8%);
   width: min(25vw, 285px);
@@ -367,9 +367,9 @@ h2 em {
 
 .hero-center {
   align-items: center;
-  background: rgba(255, 249, 244, 0.86);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  box-shadow: 0 35px 90px rgba(58, 32, 44, 0.22);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.24);
   display: flex;
   height: min(18vw, 210px);
   justify-content: center;
@@ -380,7 +380,7 @@ h2 em {
 
 .hero-center-dot {
   background: var(--plum);
-  border: 6px solid rgba(177, 95, 100, 0.24);
+  border: 6px solid rgba(0, 0, 0, 0.18);
   border-radius: 50%;
   height: 25px;
   width: 25px;
@@ -399,8 +399,8 @@ h2 em {
 
 .floating-note {
   backdrop-filter: blur(8px);
-  background: rgba(255, 250, 246, 0.9);
-  box-shadow: 0 20px 45px rgba(58, 32, 44, 0.15);
+  background: rgba(253, 253, 251, 0.92);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
   color: var(--plum);
   display: flex;
   flex-direction: column;
@@ -436,7 +436,7 @@ h2 em {
 
 .art-caption {
   bottom: 2.4rem;
-  color: rgba(255, 250, 247, 0.85);
+  color: rgba(255, 255, 255, 0.86);
   font-family: var(--serif);
   font-size: 0.85rem;
   font-style: italic;
@@ -597,11 +597,11 @@ h2 em {
 }
 
 .area-intro h2 em {
-  color: #e9aaa7;
+  color: #d6d6d2;
 }
 
 .area-intro > p:last-child {
-  color: rgba(255, 245, 241, 0.68);
+  color: rgba(255, 255, 255, 0.68);
   margin-top: 2.3rem;
   max-width: 500px;
 }
@@ -631,7 +631,7 @@ h2 em {
 }
 
 .area-row span {
-  color: #d89593;
+  color: #c8c8c4;
   font-family: var(--serif);
   font-size: 0.72rem;
   font-style: italic;
@@ -711,7 +711,7 @@ h2 em {
 
 .method-card {
   background: var(--paper);
-  box-shadow: 0 32px 80px rgba(58, 32, 44, 0.08);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
 }
@@ -760,7 +760,7 @@ h2 em {
 }
 
 .method-list span {
-  color: #d9908f;
+  color: #c8c8c4;
   font-family: var(--serif);
   font-size: 0.8rem;
   font-style: italic;
@@ -799,7 +799,7 @@ h2 em {
 }
 
 .appointments-copy h2 em {
-  color: #f3c5bd;
+  color: #dededb;
 }
 
 .appointment-pills {
@@ -821,7 +821,7 @@ h2 em {
 
 .consult-card {
   background: var(--cream);
-  box-shadow: 24px 24px 0 rgba(58, 32, 44, 0.24);
+  box-shadow: 24px 24px 0 rgba(255, 255, 255, 0.16);
   color: var(--ink);
   display: flex;
   flex-direction: column;
@@ -881,7 +881,7 @@ h2 em {
 }
 
 .portrait-sun {
-  background: #e29a94;
+  background: #a7a7a3;
   border-radius: 50%;
   height: 52%;
   position: absolute;
@@ -1080,7 +1080,7 @@ details[open] .faq-toggle::after {
 }
 
 .contact-copy h2 em {
-  color: #eda7a3;
+  color: #d6d6d2;
 }
 
 .contact-copy > p {
@@ -1120,7 +1120,7 @@ details[open] .faq-toggle::after {
 }
 
 .contact-details span {
-  color: #db9392;
+  color: #c8c8c4;
   display: block;
   font-size: 0.55rem;
   font-weight: 800;
@@ -1139,12 +1139,12 @@ details[open] .faq-toggle::after {
 }
 
 .contact-details a:hover {
-  color: #efb7b1;
+  color: white;
 }
 
 .site-footer {
   align-items: center;
-  background: #1d1016;
+  background: #000000;
   border-top: 1px solid rgba(255,255,255,0.1);
   color: white;
   display: grid;
@@ -1155,7 +1155,9 @@ details[open] .faq-toggle::after {
 }
 
 .footer-brand .brand-mark {
-  background: var(--rose);
+  background: white;
+  border-color: white;
+  color: var(--ink);
 }
 
 .site-footer > p {
@@ -1450,7 +1452,7 @@ details[open] .faq-toggle::after {
   }
 
   .consult-card {
-    box-shadow: 12px 12px 0 rgba(58, 32, 44, 0.24);
+    box-shadow: 12px 12px 0 rgba(255, 255, 255, 0.16);
   }
 
   .faq-list summary {

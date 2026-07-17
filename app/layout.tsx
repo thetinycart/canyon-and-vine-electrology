@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
-    title: "Canyon & Vine Electrology | American Canyon, CA",
+    title: "Ever Green Electrology | American Canyon, CA",
     description,
     alternates: {
       canonical: publicSiteUrl,
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "PCOS facial hair removal",
     ],
     openGraph: {
-      title: "Canyon & Vine Electrology",
+      title: "Ever Green Electrology",
       description:
         "Permanent hair removal, thoughtfully done. Now welcoming clients in American Canyon, California.",
       type: "website",
@@ -60,13 +60,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: socialImage,
           width: 1731,
           height: 909,
-          alt: "Canyon & Vine Electrology — permanent hair removal, thoughtfully done.",
+          alt: "Ever Green Electrology — permanent hair removal, thoughtfully done.",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Canyon & Vine Electrology",
+      title: "Ever Green Electrology",
       description:
         "Permanent hair removal, thoughtfully done. Now welcoming clients in American Canyon, California.",
       images: [socialImage],
