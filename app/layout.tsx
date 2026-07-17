@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Canyon & Vine Electrology",
       description:
-        "Permanent hair removal, thoughtfully done. Opening after licensure in American Canyon, California.",
+        "Permanent hair removal, thoughtfully done. Coming Spring 2027 to American Canyon, California.",
       type: "website",
       locale: "en_US",
       images: [
@@ -61,7 +61,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Canyon & Vine Electrology",
       description:
-        "Permanent hair removal, thoughtfully done. Opening after licensure in American Canyon, California.",
+        "Permanent hair removal, thoughtfully done. Coming Spring 2027 to American Canyon, California.",
       images: [socialImage],
     },
     robots: {

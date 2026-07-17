@@ -30,18 +30,18 @@ test("server-renders the Canyon & Vine concept site", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Canyon &amp; Vine Electrology \| American Canyon, CA<\/title>/i);
-  assert.match(html, /Opening after California licensure/);
+  assert.match(html, /Coming Spring 2027/);
   assert.match(html, /Feel at home/);
   assert.match(html, /Consultation &amp; test session/);
   assert.match(html, /Gender-affirming care/);
   assert.match(html, /Grooming &amp; active lifestyles/);
   assert.match(html, /Microbiology from UC Davis/);
   assert.match(html, /California Electrology Academy/);
-  assert.match(html, /Pre-opening concept · Booking opens after licensure/);
+  assert.match(html, /Coming Spring 2027 · American Canyon/);
   assert.match(html, /name="robots" content="noindex, nofollow"/i);
   assert.doesNotMatch(
     html,
-    /codex-preview|react-loading-skeleton|bikini|intimate|pre-operative|surgeon|surgical clearance/i,
+    /codex-preview|react-loading-skeleton|bikini|intimate|pre-operative|surgeon|surgical clearance|license · Pending|opening after licensure/i,
   );
 });
 

@@ -1,13 +1,13 @@
 # Canyon & Vine Electrology
 
 A responsive concept site for a future private electrology practice in American
-Canyon, California. The working brand, contact details, service menu, and launch
-language are intentionally provisional while the practitioner completes training
-and California licensure.
+Canyon, California. The working brand, contact details, service menu, and Spring
+2027 launch language are intentionally provisional while the practitioner
+completes training.
 
 ## What the mockup includes
 
-- opening-soon positioning that does not imply current licensure
+- Spring 2027 opening positioning that does not imply current licensure
 - face, selected body, hormonal-hair, gender-affirming, grooming, precision,
   and extended-session service concepts
 - common treatment areas and the three electrology modalities

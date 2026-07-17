@@ -117,7 +117,7 @@ export default function Home() {
       </a>
 
       <div className="announcement">
-        <span>Opening after California licensure</span>
+        <span>Coming Spring 2027</span>
         <span className="announcement-dot" aria-hidden="true" />
         <span>American Canyon, CA</span>
       </div>
@@ -208,7 +208,7 @@ export default function Home() {
           </div>
           <div>
             <span className="trust-number">04</span>
-            <p><strong>Licensed</strong> California practice at opening</p>
+            <p><strong>Planned</strong> for Spring 2027</p>
           </div>
         </section>
 
@@ -356,10 +356,10 @@ export default function Home() {
               <span>Nav’s approach</span>
               <p>Science-minded care, candid guidance, and a treatment plan shaped around the individual—not a template.</p>
             </div>
-            <div className="credential-list" aria-label="Nav's education and pending credentials">
+            <div className="credential-list" aria-label="Nav's education and launch details">
               <span>Microbiology · UC Davis</span>
               <span>Electrology · California Electrology Academy</span>
-              <span>California electrologist license · Pending</span>
+              <span>Opening · Spring 2027</span>
             </div>
           </div>
         </section>
@@ -427,7 +427,7 @@ export default function Home() {
         <p>Permanent hair removal, thoughtfully done.</p>
         <div className="footer-meta">
           <span>© 2026 Canyon &amp; Vine Electrology</span>
-          <span>Pre-opening concept · Booking opens after licensure</span>
+          <span>Coming Spring 2027 · American Canyon</span>
         </div>
       </footer>
     </main>
