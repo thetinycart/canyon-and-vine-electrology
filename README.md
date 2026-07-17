@@ -5,6 +5,8 @@ Canyon, California. The working brand, contact details, service menu, and Spring
 2027 launch language are intentionally provisional while the practitioner
 completes training.
 
+Public review site: https://thetinycart.github.io/canyon-and-vine-electrology/
+
 ## What the mockup includes
 
 - Spring 2027 opening positioning that does not imply current licensure
@@ -33,8 +35,12 @@ Visit `http://localhost:3000`.
 
 ```bash
 npm run build
+npm run export:github-pages
 node --test tests/rendered-html.test.mjs
 ```
+
+`npm run export:github-pages` creates the static `github-pages/` artifact used
+by the GitHub Pages deployment workflow.
 
 ## Before a public launch
 
