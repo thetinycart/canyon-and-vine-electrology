@@ -111,12 +111,60 @@ summary {
   color: var(--petal);
   display: inline-flex;
   font-family: var(--serif);
-  font-size: 0.68rem;
   font-style: normal;
-  height: 38px;
+  height: 42px;
   justify-content: center;
-  letter-spacing: 0.06em;
-  width: 38px;
+  overflow: hidden;
+  position: relative;
+  width: 42px;
+}
+
+.brand-profile {
+  background: currentColor;
+  clip-path: polygon(
+    24% 8%,
+    55% 0,
+    73% 10%,
+    78% 25%,
+    96% 35%,
+    80% 42%,
+    91% 48%,
+    78% 54%,
+    84% 61%,
+    70% 70%,
+    61% 79%,
+    64% 100%,
+    26% 100%,
+    31% 78%,
+    17% 65%,
+    8% 46%,
+    11% 25%
+  );
+  height: 27px;
+  left: 4px;
+  position: absolute;
+  top: 7px;
+  width: 18px;
+}
+
+.brand-mark::before {
+  background: currentColor;
+  border-radius: 50%;
+  content: "";
+  height: 7px;
+  left: 2px;
+  position: absolute;
+  top: 12px;
+  width: 7px;
+}
+
+.brand-initials {
+  font-family: var(--serif);
+  font-size: 0.58rem;
+  letter-spacing: 0.03em;
+  margin-left: 17px;
+  position: relative;
+  z-index: 1;
 }
 
 .brand-name {
@@ -1237,8 +1285,27 @@ details[open] .faq-toggle::after {
   }
 
   .brand-mark {
-    height: 34px;
-    width: 34px;
+    height: 38px;
+    width: 38px;
+  }
+
+  .brand-profile {
+    height: 25px;
+    left: 3px;
+    top: 6px;
+    width: 17px;
+  }
+
+  .brand-mark::before {
+    height: 6px;
+    left: 1px;
+    top: 11px;
+    width: 6px;
+  }
+
+  .brand-initials {
+    font-size: 0.54rem;
+    margin-left: 16px;
   }
 
   .hero {

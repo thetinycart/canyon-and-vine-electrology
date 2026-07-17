@@ -109,6 +109,15 @@ const faqs = [
   },
 ];
 
+function BrandMark() {
+  return (
+    <span className="brand-mark" aria-hidden="true">
+      <span className="brand-profile" />
+      <span className="brand-initials">EG</span>
+    </span>
+  );
+}
+
 export default function Home() {
   return (
     <main id="top">
@@ -124,9 +133,7 @@ export default function Home() {
 
       <header className="site-header" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Ever Green Electrology home">
-          <span className="brand-mark" aria-hidden="true">
-            EG
-          </span>
+          <BrandMark />
           <span className="brand-name">
             Ever Green
             <small>Electrology</small>
@@ -424,7 +431,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <a className="brand footer-brand" href="#top">
-          <span className="brand-mark" aria-hidden="true">EG</span>
+          <BrandMark />
           <span className="brand-name">Ever Green<small>Electrology</small></span>
         </a>
         <p>Permanent hair removal, thoughtfully done.</p>
