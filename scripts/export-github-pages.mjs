@@ -51,6 +51,10 @@ html = html
   .replace(/<link\b[^>]*rel=["']modulepreload["'][^>]*\/?\s*>/gi, "")
   .replaceAll('href="/assets/', `href="${basePath}/assets/`)
   .replaceAll('src="/assets/', `src="${basePath}/assets/`)
+  .replaceAll('href="/brand-mark.png"', `href="${basePath}/brand-mark.png"`)
+  .replaceAll('href="/hero-profile.jpg"', `href="${basePath}/hero-profile.jpg"`)
+  .replaceAll('src="/brand-mark.png"', `src="${basePath}/brand-mark.png"`)
+  .replaceAll('src="/hero-profile.jpg"', `src="${basePath}/hero-profile.jpg"`)
   .replace(
     /(<meta property="og:image" content=")[^"]+("\/?>)/,
     `$1${publicSiteUrl}/og.png$2`,
@@ -75,6 +79,14 @@ for (const asset of await readdir(sourceAssets)) {
   }
 }
 await cp(path.join(clientDirectory, "og.png"), path.join(outputDirectory, "og.png"));
+await cp(
+  path.join(clientDirectory, "brand-mark.png"),
+  path.join(outputDirectory, "brand-mark.png"),
+);
+await cp(
+  path.join(clientDirectory, "hero-profile.jpg"),
+  path.join(outputDirectory, "hero-profile.jpg"),
+);
 await writeFile(path.join(outputDirectory, "index.html"), html);
 await writeFile(path.join(outputDirectory, "404.html"), html);
 await writeFile(path.join(outputDirectory, ".nojekyll"), "");

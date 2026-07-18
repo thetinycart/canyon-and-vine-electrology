@@ -112,8 +112,14 @@ const faqs = [
 function BrandMark() {
   return (
     <span className="brand-mark" aria-hidden="true">
-      <span className="brand-profile" />
-      <span className="brand-initials">EG</span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="brand-mark-image"
+        src="/brand-mark.png"
+        alt=""
+        width="213"
+        height="213"
+      />
     </span>
   );
 }
@@ -180,14 +186,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="hero-art" aria-label="A calm, abstract visualization of precision hair removal">
-            <div className="hero-orbit orbit-one" aria-hidden="true" />
-            <div className="hero-orbit orbit-two" aria-hidden="true" />
-            <div className="hero-orbit orbit-three" aria-hidden="true" />
-            <div className="hero-center" aria-hidden="true">
-              <span className="hero-center-dot" />
-              <span className="hero-center-line" />
-            </div>
+          <div className="hero-art">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="hero-photo"
+              src="/hero-profile.jpg"
+              alt="Black-and-white editorial portrait of a woman in profile"
+              width="1003"
+              height="1568"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
             <div className="floating-note note-top">
               <span className="note-kicker">Designed for</span>
               <strong>every skin tone and hair color</strong>

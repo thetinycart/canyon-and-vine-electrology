@@ -63,13 +63,14 @@ test("uses the finished Ever Green brand and monochrome design system", async ()
   ]);
 
   assert.match(page, /Ever Green/);
-  assert.match(page, /className="brand-profile"/);
-  assert.match(page, /className="brand-initials">EG/);
+  assert.match(page, /src="\/brand-mark\.png"/);
+  assert.match(page, /src="\/hero-profile\.jpg"/);
   assert.doesNotMatch(page, /Canyon &amp; Vine|Canyon and Vine|>CV</);
   assert.match(styles, /--ink: #0a0a0a/);
   assert.match(styles, /--paper: #fdfdfb/);
-  assert.match(styles, /\.brand-profile\s*\{/);
-  assert.match(styles, /clip-path: polygon\(/);
+  assert.match(styles, /\.brand-mark-image\s*\{/);
+  assert.match(styles, /\.hero-photo\s*\{/);
+  assert.doesNotMatch(styles, /\.hero-orbit|\.hero-center|clip-path: polygon\(/);
   assert.doesNotMatch(styles, /#b15f64|#8f464d|#f2d9d3|#efc9c3|#d9918f|#ad5b62/i);
   assert.doesNotMatch(layout, /robots:/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);

@@ -18,6 +18,15 @@ test("exports a self-contained GitHub Pages site", async () => {
     html,
     /href="\/canyon-and-vine-electrology\/assets\/index-[^"]+\.css"/,
   );
+  assert.match(
+    html,
+    /src="\/canyon-and-vine-electrology\/brand-mark\.png"/,
+  );
+  assert.match(
+    html,
+    /src="\/canyon-and-vine-electrology\/hero-profile\.jpg"/,
+  );
+  assert.doesNotMatch(html, /(?:href|src)="\/(?:brand-mark\.png|hero-profile\.jpg)"/);
   assert.match(html, new RegExp(`${expectedUrl}/og\\.png`));
   assert.match(html, new RegExp(`rel="canonical" href="${expectedUrl}/"`));
   assert.match(
@@ -37,6 +46,8 @@ test("exports a self-contained GitHub Pages site", async () => {
 
   await Promise.all([
     access(new URL("../github-pages/og.png", import.meta.url)),
+    access(new URL("../github-pages/brand-mark.png", import.meta.url)),
+    access(new URL("../github-pages/hero-profile.jpg", import.meta.url)),
     access(new URL("../github-pages/.nojekyll", import.meta.url)),
   ]);
 });
