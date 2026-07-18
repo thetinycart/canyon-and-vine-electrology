@@ -115,7 +115,7 @@ function BrandMark() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="brand-mark-image"
-        src="/brand-mark.png"
+        src="/brand-mark.png?v=ee-20260718"
         alt=""
         width="512"
         height="512"
@@ -190,7 +190,7 @@ export default function Home() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="hero-photo"
-              src="/hero-profile.jpg"
+              src="/hero-profile.jpg?v=ee-20260718"
               alt="Black-and-white editorial portrait of a woman in profile"
               width="1003"
               height="1568"

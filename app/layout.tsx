@@ -30,7 +30,7 @@ async function getMetadataBase() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const metadataBase = await getMetadataBase();
-  const socialImage = new URL("/og.png", metadataBase).toString();
+  const socialImage = new URL("/og.png?v=ee-20260718", metadataBase).toString();
   const description =
     "Nav’s private electrology studio serving American Canyon and the Napa–Solano community with refined, inclusive permanent hair removal care.";
 

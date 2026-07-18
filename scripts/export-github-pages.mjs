@@ -51,17 +51,29 @@ html = html
   .replace(/<link\b[^>]*rel=["']modulepreload["'][^>]*\/?\s*>/gi, "")
   .replaceAll('href="/assets/', `href="${basePath}/assets/`)
   .replaceAll('src="/assets/', `src="${basePath}/assets/`)
-  .replaceAll('href="/brand-mark.png"', `href="${basePath}/brand-mark.png"`)
-  .replaceAll('href="/hero-profile.jpg"', `href="${basePath}/hero-profile.jpg"`)
-  .replaceAll('src="/brand-mark.png"', `src="${basePath}/brand-mark.png"`)
-  .replaceAll('src="/hero-profile.jpg"', `src="${basePath}/hero-profile.jpg"`)
+  .replaceAll(
+    'href="/brand-mark.png?v=ee-20260718"',
+    `href="${basePath}/brand-mark.png?v=ee-20260718"`,
+  )
+  .replaceAll(
+    'href="/hero-profile.jpg?v=ee-20260718"',
+    `href="${basePath}/hero-profile.jpg?v=ee-20260718"`,
+  )
+  .replaceAll(
+    'src="/brand-mark.png?v=ee-20260718"',
+    `src="${basePath}/brand-mark.png?v=ee-20260718"`,
+  )
+  .replaceAll(
+    'src="/hero-profile.jpg?v=ee-20260718"',
+    `src="${basePath}/hero-profile.jpg?v=ee-20260718"`,
+  )
   .replace(
     /(<meta property="og:image" content=")[^"]+("\/?>)/,
-    `$1${publicSiteUrl}/og.png$2`,
+    `$1${publicSiteUrl}/og.png?v=ee-20260718$2`,
   )
   .replace(
     /(<meta name="twitter:image" content=")[^"]+("\/?>)/,
-    `$1${publicSiteUrl}/og.png$2`,
+    `$1${publicSiteUrl}/og.png?v=ee-20260718$2`,
   )
   .replace(
     /(<link rel="canonical" href=")[^"]+("\/?>)/,
