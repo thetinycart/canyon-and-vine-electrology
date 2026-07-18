@@ -23,13 +23,14 @@ async function render() {
   );
 }
 
-test("server-renders the launch-ready Ever Green site", async () => {
+test("server-renders the launch-ready Evergreen site", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Ever Green Electrology \| American Canyon, CA<\/title>/i);
+  assert.match(html, /<title>Evergreen Electrology \| American Canyon, CA<\/title>/i);
+  assert.doesNotMatch(html, /Ever Green/);
   assert.match(html, /Now welcoming clients/);
   assert.match(html, /Feel at home/);
   assert.match(html, /Consultation &amp; test session/);
@@ -54,7 +55,7 @@ test("server-renders the launch-ready Ever Green site", async () => {
   );
 });
 
-test("uses the finished Ever Green brand and monochrome design system", async () => {
+test("uses the finished Evergreen brand and monochrome design system", async () => {
   const [page, layout, styles, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
@@ -62,7 +63,8 @@ test("uses the finished Ever Green brand and monochrome design system", async ()
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /Ever Green/);
+  assert.match(page, /Evergreen/);
+  assert.doesNotMatch(page, /Ever Green/);
   assert.match(page, /src="\/brand-mark\.png"/);
   assert.match(page, /src="\/hero-profile\.jpg"/);
   assert.doesNotMatch(page, /Canyon &amp; Vine|Canyon and Vine|>CV</);

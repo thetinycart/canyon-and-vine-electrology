@@ -1,4 +1,4 @@
-name: Deploy Ever Green Electrology to GitHub Pages
+name: Deploy Evergreen Electrology to GitHub Pages
 
 on:
   push:

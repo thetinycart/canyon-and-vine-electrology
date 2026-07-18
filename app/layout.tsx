@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
-    title: "Ever Green Electrology | American Canyon, CA",
+    title: "Evergreen Electrology | American Canyon, CA",
     description,
     alternates: {
       canonical: publicSiteUrl,
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "PCOS facial hair removal",
     ],
     openGraph: {
-      title: "Ever Green Electrology",
+      title: "Evergreen Electrology",
       description:
         "Permanent hair removal, thoughtfully done. Now welcoming clients in American Canyon, California.",
       type: "website",
@@ -60,13 +60,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: socialImage,
           width: 1731,
           height: 909,
-          alt: "Ever Green Electrology — permanent hair removal, thoughtfully done.",
+          alt: "Evergreen Electrology — permanent hair removal, thoughtfully done.",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Ever Green Electrology",
+      title: "Evergreen Electrology",
       description:
         "Permanent hair removal, thoughtfully done. Now welcoming clients in American Canyon, California.",
       images: [socialImage],

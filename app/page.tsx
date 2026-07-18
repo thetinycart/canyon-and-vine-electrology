@@ -100,7 +100,7 @@ const faqs = [
   {
     question: "Do you offer laser hair removal?",
     answer:
-      "No. Ever Green Electrology is dedicated specifically to licensed electrology. California places laser treatment outside an electrologist’s scope of practice, so the service menu is intentionally focused on probe-based electrolysis.",
+      "No. Evergreen Electrology is dedicated specifically to licensed electrology. California places laser treatment outside an electrologist’s scope of practice, so the service menu is intentionally focused on probe-based electrolysis.",
   },
   {
     question: "How will hygiene and sterilization be handled?",
@@ -138,10 +138,10 @@ export default function Home() {
       </div>
 
       <header className="site-header" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="Ever Green Electrology home">
+        <a className="brand" href="#top" aria-label="Evergreen Electrology home">
           <BrandMark />
           <span className="brand-name">
-            Ever Green
+            Evergreen
             <small>Electrology</small>
           </span>
         </a>
@@ -414,7 +414,7 @@ export default function Home() {
               To ask a question or request a consultation, get in touch by email. We’ll confirm
               the treatment area, current rates, studio details, and an appointment time.
             </p>
-            <a className="button button-light" href="mailto:hello@example.com?subject=Ever%20Green%20Electrology%20consultation%20request">
+            <a className="button button-light" href="mailto:hello@example.com?subject=Evergreen%20Electrology%20consultation%20request">
               Request by email <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -442,11 +442,11 @@ export default function Home() {
       <footer className="site-footer">
         <a className="brand footer-brand" href="#top">
           <BrandMark />
-          <span className="brand-name">Ever Green<small>Electrology</small></span>
+          <span className="brand-name">Evergreen<small>Electrology</small></span>
         </a>
         <p>Permanent hair removal, thoughtfully done.</p>
         <div className="footer-meta">
-          <span>© 2027 Ever Green Electrology</span>
+          <span>© 2027 Evergreen Electrology</span>
           <span>American Canyon · By appointment</span>
         </div>
       </footer>
