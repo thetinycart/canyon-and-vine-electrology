@@ -108,10 +108,10 @@ summary {
   border: 0;
   border-radius: 50%;
   display: block;
-  flex: 0 0 52px;
-  height: 52px;
+  flex: 0 0 56px;
+  height: 56px;
   overflow: hidden;
-  width: 52px;
+  width: 56px;
 }
 
 .brand-mark-image {
@@ -1193,9 +1193,9 @@ details[open] .faq-toggle::after {
   }
 
   .brand-mark {
-    flex-basis: 46px;
-    height: 46px;
-    width: 46px;
+    flex-basis: 50px;
+    height: 50px;
+    width: 50px;
   }
 
   .hero {

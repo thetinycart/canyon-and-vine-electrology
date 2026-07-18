@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -50,4 +51,19 @@ test("exports a self-contained GitHub Pages site", async () => {
     access(new URL("../github-pages/hero-profile.jpg", import.meta.url)),
     access(new URL("../github-pages/.nojekyll", import.meta.url)),
   ]);
+
+  const [publicMark, exportedMark, publicOg, exportedOg] = await Promise.all([
+    readFile(new URL("../public/brand-mark.png", import.meta.url)),
+    readFile(new URL("../github-pages/brand-mark.png", import.meta.url)),
+    readFile(new URL("../public/og.png", import.meta.url)),
+    readFile(new URL("../github-pages/og.png", import.meta.url)),
+  ]);
+  const hash = (value) => createHash("sha256").update(value).digest("hex");
+
+  assert.equal(hash(exportedMark), hash(publicMark));
+  assert.equal(hash(exportedOg), hash(publicOg));
+  assert.equal(publicMark.readUInt32BE(16), 512);
+  assert.equal(publicMark.readUInt32BE(20), 512);
+  assert.equal(publicOg.readUInt32BE(16), 1731);
+  assert.equal(publicOg.readUInt32BE(20), 909);
 });

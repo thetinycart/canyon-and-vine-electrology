@@ -117,8 +117,8 @@ function BrandMark() {
         className="brand-mark-image"
         src="/brand-mark.png"
         alt=""
-        width="213"
-        height="213"
+        width="512"
+        height="512"
       />
     </span>
   );
