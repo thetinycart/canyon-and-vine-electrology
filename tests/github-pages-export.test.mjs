@@ -22,22 +22,25 @@ test("exports a self-contained GitHub Pages site", async () => {
   );
   assert.match(
     html,
-    /src="\/canyon-and-vine-electrology\/brand-mark\.png\?v=ee-20260718"/,
+    /src="\/canyon-and-vine-electrology\/brand-mark\.png\?v=ee-wordmark-20260718"/,
   );
   assert.match(
     html,
-    /src="\/canyon-and-vine-electrology\/hero-profile\.jpg\?v=ee-20260718"/,
+    /src="\/canyon-and-vine-electrology\/hero-profile\.jpg\?v=ee-wordmark-20260718"/,
   );
   assert.doesNotMatch(
     html,
     /(?:href|src)="\/(?:brand-mark\.png|hero-profile\.jpg)(?:\?[^\"]*)?"/,
   );
-  assert.match(html, new RegExp(`${expectedUrl}/og\\.png\\?v=ee-20260718`));
+  assert.match(
+    html,
+    new RegExp(`${expectedUrl}/og\\.png\\?v=ee-wordmark-20260718`),
+  );
   assert.match(html, new RegExp(`rel="canonical" href="${expectedUrl}/"`));
   assert.match(
     html,
     new RegExp(
-      `name="twitter:image" content="${expectedUrl}/og\\.png\\?v=ee-20260718"`,
+      `name="twitter:image" content="${expectedUrl}/og\\.png\\?v=ee-wordmark-20260718"`,
     ),
   );
   assert.match(html, /width="1003" height="1568"/);

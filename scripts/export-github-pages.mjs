@@ -52,28 +52,28 @@ html = html
   .replaceAll('href="/assets/', `href="${basePath}/assets/`)
   .replaceAll('src="/assets/', `src="${basePath}/assets/`)
   .replaceAll(
-    'href="/brand-mark.png?v=ee-20260718"',
-    `href="${basePath}/brand-mark.png?v=ee-20260718"`,
+    'href="/brand-mark.png?v=ee-wordmark-20260718"',
+    `href="${basePath}/brand-mark.png?v=ee-wordmark-20260718"`,
   )
   .replaceAll(
-    'href="/hero-profile.jpg?v=ee-20260718"',
-    `href="${basePath}/hero-profile.jpg?v=ee-20260718"`,
+    'href="/hero-profile.jpg?v=ee-wordmark-20260718"',
+    `href="${basePath}/hero-profile.jpg?v=ee-wordmark-20260718"`,
   )
   .replaceAll(
-    'src="/brand-mark.png?v=ee-20260718"',
-    `src="${basePath}/brand-mark.png?v=ee-20260718"`,
+    'src="/brand-mark.png?v=ee-wordmark-20260718"',
+    `src="${basePath}/brand-mark.png?v=ee-wordmark-20260718"`,
   )
   .replaceAll(
-    'src="/hero-profile.jpg?v=ee-20260718"',
-    `src="${basePath}/hero-profile.jpg?v=ee-20260718"`,
+    'src="/hero-profile.jpg?v=ee-wordmark-20260718"',
+    `src="${basePath}/hero-profile.jpg?v=ee-wordmark-20260718"`,
   )
   .replace(
     /(<meta property="og:image" content=")[^"]+("\/?>)/,
-    `$1${publicSiteUrl}/og.png?v=ee-20260718$2`,
+    `$1${publicSiteUrl}/og.png?v=ee-wordmark-20260718$2`,
   )
   .replace(
     /(<meta name="twitter:image" content=")[^"]+("\/?>)/,
-    `$1${publicSiteUrl}/og.png?v=ee-20260718$2`,
+    `$1${publicSiteUrl}/og.png?v=ee-wordmark-20260718$2`,
   )
   .replace(
     /(<link rel="canonical" href=")[^"]+("\/?>)/,

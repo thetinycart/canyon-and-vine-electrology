@@ -65,8 +65,8 @@ test("uses the finished Evergreen brand and monochrome design system", async () 
 
   assert.match(page, /Evergreen/);
   assert.doesNotMatch(page, /Ever Green/);
-  assert.match(page, /src="\/brand-mark\.png\?v=ee-20260718"/);
-  assert.match(page, /src="\/hero-profile\.jpg\?v=ee-20260718"/);
+  assert.match(page, /src="\/brand-mark\.png\?v=ee-wordmark-20260718"/);
+  assert.match(page, /src="\/hero-profile\.jpg\?v=ee-wordmark-20260718"/);
   assert.doesNotMatch(page, /Canyon &amp; Vine|Canyon and Vine|>CV</);
   assert.match(styles, /--ink: #0a0a0a/);
   assert.match(styles, /--paper: #fdfdfb/);
