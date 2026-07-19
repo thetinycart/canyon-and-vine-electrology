@@ -25,15 +25,15 @@ const services = [
   },
   {
     number: "05",
-    title: "Gender-affirming care",
-    text: "An affirming, discreet setting for facial and listed non-intimate body-area goals, with a treatment plan tailored to your timeline.",
-    note: "Every identity welcome",
+    title: "Personalized treatment plans",
+    text: "Discreet care for facial and listed non-intimate body-area goals, with appointment timing tailored to your needs.",
+    note: "Your goals · your timeline",
   },
   {
     number: "06",
     title: "Grooming & active lifestyles",
     text: "Considered care for athletes and clients who prefer less hair on the neckline, shoulders, chest, back, arms, or legs.",
-    note: "Personal goals · never gendered",
+    note: "Targeted areas · tailored care",
   },
   {
     number: "07",
@@ -217,7 +217,7 @@ export default function Home() {
           </div>
           <div>
             <span className="trust-number">02</span>
-            <p><strong>Inclusive</strong> care without assumptions</p>
+            <p><strong>Personalized</strong> care shaped around your goals</p>
           </div>
           <div>
             <span className="trust-number">03</span>
@@ -286,7 +286,7 @@ export default function Home() {
             <article>
               <span className="process-number">1</span>
               <h3>Start with your story</h3>
-              <p>We talk through goals, hair history, skin response, schedule, and any questions—privately and without judgment.</p>
+              <p>We review your goals, hair history, skin response, schedule, and questions during a private consultation.</p>
             </article>
             <article>
               <span className="process-number">2</span>
@@ -369,7 +369,7 @@ export default function Home() {
             </p>
             <p>
               Nav welcomes clients to a polished private suite in American Canyon, designed
-              for calm, one-on-one appointments where every client can feel informed, respected,
+              for calm, one-on-one appointments where clients can feel informed, respected,
               and comfortable asking questions.
             </p>
             <div className="principle-card">

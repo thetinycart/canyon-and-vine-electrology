@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase,
   ).toString();
   const description =
-    "Nav’s private electrology studio serving American Canyon and the Napa–Solano community with refined, inclusive permanent hair removal care.";
+    "Nav’s private electrology studio serving American Canyon and the Napa–Solano community with refined, personalized permanent hair removal care.";
 
   return {
     metadataBase,
@@ -48,7 +48,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "electrolysis American Canyon",
       "electrologist Napa",
       "permanent hair removal Solano County",
-      "gender affirming electrolysis",
+      "facial electrolysis Napa–Solano",
       "PCOS facial hair removal",
     ],
     openGraph: {

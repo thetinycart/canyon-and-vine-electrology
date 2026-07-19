@@ -34,7 +34,7 @@ test("server-renders the launch-ready Evergreen site", async () => {
   assert.match(html, /Now welcoming clients/);
   assert.match(html, /Feel at home/);
   assert.match(html, /Consultation &amp; test session/);
-  assert.match(html, /Gender-affirming care/);
+  assert.match(html, /Personalized treatment plans/);
   assert.match(html, /Grooming &amp; active lifestyles/);
   assert.match(html, /Microbiology from UC Davis/);
   assert.match(html, /California Electrology Academy/);
@@ -49,6 +49,10 @@ test("server-renders the launch-ready Evergreen site", async () => {
   );
   assert.doesNotMatch(html, /name="robots" content="noindex, nofollow"/i);
   assert.doesNotMatch(html, /nofollow/i);
+  assert.doesNotMatch(
+    html,
+    /gender[ -]affirming|inclusive|every identity|never gendered|without assumptions|without judgment/i,
+  );
   assert.doesNotMatch(
     html,
     /codex-preview|react-loading-skeleton|bikini|pre-operative|surgeon|surgical clearance|license · Pending|opening after licensure|Coming Spring 2027|future studio|planned services|At opening/i,

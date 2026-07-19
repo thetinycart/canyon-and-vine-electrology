@@ -10,7 +10,7 @@ Public site: https://tycheventuresllc.com/canyon-and-vine-electrology/
 ## What the mockup includes
 
 - launch-ready positioning and consultation calls to action
-- face, selected body, hormonal-hair, gender-affirming, grooming, precision,
+- face, selected body, hormonal-hair, personalized planning, grooming, precision,
   and extended-session service concepts
 - common treatment areas and the three electrology modalities
 - consultation and treatment-plan journey
