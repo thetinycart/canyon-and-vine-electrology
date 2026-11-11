@@ -13,7 +13,7 @@ test("exports a self-contained GitHub Pages site", async () => {
   );
 
   assert.match(html, /Now welcoming clients/);
-  assert.match(html, /Evergreen Electrology/);
+  assert.match(html, /Evergreen Electrolysis/);
   assert.doesNotMatch(html, /Ever Green/);
   assert.doesNotMatch(html, /Canyon &amp; Vine|Canyon and Vine|>CV</);
   assert.match(
@@ -22,11 +22,11 @@ test("exports a self-contained GitHub Pages site", async () => {
   );
   assert.match(
     html,
-    /src="\/canyon-and-vine-electrology\/brand-mark\.png\?v=ee-wordmark-20260718"/,
+    /src="\/canyon-and-vine-electrology\/brand-mark\.png\?v=ee-electrolysis-20261111"/,
   );
   assert.match(
     html,
-    /src="\/canyon-and-vine-electrology\/hero-profile\.jpg\?v=ee-wordmark-20260718"/,
+    /src="\/canyon-and-vine-electrology\/hero-profile\.jpg\?v=ee-electrolysis-20261111"/,
   );
   assert.doesNotMatch(
     html,
@@ -34,13 +34,13 @@ test("exports a self-contained GitHub Pages site", async () => {
   );
   assert.match(
     html,
-    new RegExp(`${expectedUrl}/og\\.png\\?v=ee-wordmark-20260718`),
+    new RegExp(`${expectedUrl}/og\\.png\\?v=ee-electrolysis-20261111`),
   );
   assert.match(html, new RegExp(`rel="canonical" href="${expectedUrl}/"`));
   assert.match(
     html,
     new RegExp(
-      `name="twitter:image" content="${expectedUrl}/og\\.png\\?v=ee-wordmark-20260718"`,
+      `name="twitter:image" content="${expectedUrl}/og\\.png\\?v=ee-electrolysis-20261111"`,
     ),
   );
   assert.match(html, /width="1003" height="1568"/);
@@ -88,4 +88,35 @@ test("exports a self-contained GitHub Pages site", async () => {
   assert.equal(publicOg.readUInt32BE(20), 909);
   assert.deepEqual([...publicHero.subarray(0, 3)], [0xff, 0xd8, 0xff]);
   assert.deepEqual([...publicHero.subarray(-2)], [0xff, 0xd9]);
+});
+
+test("exports the concepts index and alternate design without replacing the homepage", async () => {
+  const [home, concepts, alternate] = await Promise.all([
+    readFile(new URL("../github-pages/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../github-pages/concepts/index.html", import.meta.url), "utf8"),
+    readFile(
+      new URL("../github-pages/concepts/design-02/index.html", import.meta.url),
+      "utf8",
+    ),
+  ]);
+
+  assert.match(home, /Feel at home/);
+  assert.match(concepts, /Classic Monochrome/);
+  assert.match(concepts, /Wine Country Journal/);
+  assert.match(alternate, /A quieter way/);
+  assert.match(alternate, /Before your visit/);
+  assert.match(
+    concepts,
+    /href="\/canyon-and-vine-electrology\/concepts\/design-02\/"/,
+  );
+  assert.match(
+    alternate,
+    /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-02\/"/,
+  );
+
+  for (const html of [concepts, alternate]) {
+    assert.doesNotMatch(html, /<script\b/i);
+    assert.doesNotMatch(html, /rel="modulepreload"/i);
+    assert.doesNotMatch(html, /(?:href|src)="\/assets\//);
+  }
 });

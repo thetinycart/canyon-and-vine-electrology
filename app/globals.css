@@ -1132,6 +1132,33 @@ details[open] .faq-toggle::after {
   text-transform: uppercase;
 }
 
+.footer-legal {
+  align-items: start;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  display: grid;
+  gap: 1.5rem;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding-top: 1.25rem;
+  width: 100%;
+}
+
+.footer-legal p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.72rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 820px;
+}
+
+.footer-legal a {
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 1100px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -1289,6 +1316,10 @@ details[open] .faq-toggle::after {
   .footer-meta {
     justify-self: start;
     text-align: left;
+  }
+
+  .footer-legal {
+    grid-template-columns: 1fr;
   }
 }
 

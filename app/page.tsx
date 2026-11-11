@@ -100,7 +100,7 @@ const faqs = [
   {
     question: "Do you offer laser hair removal?",
     answer:
-      "No. Evergreen Electrology is dedicated specifically to licensed electrology. California places laser treatment outside an electrologist’s scope of practice, so the service menu is intentionally focused on probe-based electrolysis.",
+      "No. Evergreen Electrolysis is dedicated specifically to licensed electrology. California places laser treatment outside an electrologist’s scope of practice, so the service menu is intentionally focused on probe-based electrolysis.",
   },
   {
     question: "How will hygiene and sterilization be handled?",
@@ -115,7 +115,7 @@ function BrandMark() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="brand-mark-image"
-        src="/brand-mark.png?v=ee-wordmark-20260718"
+        src="/brand-mark.png?v=ee-electrolysis-20261111"
         alt=""
         width="512"
         height="512"
@@ -138,11 +138,11 @@ export default function Home() {
       </div>
 
       <header className="site-header" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="Evergreen Electrology home">
+        <a className="brand" href="#top" aria-label="Evergreen Electrolysis home">
           <BrandMark />
           <span className="brand-name">
             Evergreen
-            <small>Electrology</small>
+            <small>Electrolysis</small>
           </span>
         </a>
 
@@ -190,7 +190,7 @@ export default function Home() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="hero-photo"
-              src="/hero-profile.jpg?v=ee-wordmark-20260718"
+              src="/hero-profile.jpg?v=ee-electrolysis-20261111"
               alt="Black-and-white editorial portrait of a woman in profile"
               width="1003"
               height="1568"
@@ -414,7 +414,7 @@ export default function Home() {
               To ask a question or request a consultation, get in touch by email. We’ll confirm
               the treatment area, current rates, studio details, and an appointment time.
             </p>
-            <a className="button button-light" href="mailto:hello@example.com?subject=Evergreen%20Electrology%20consultation%20request">
+            <a className="button button-light" href="mailto:hello@example.com?subject=Evergreen%20Electrolysis%20consultation%20request">
               Request by email <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -442,12 +442,21 @@ export default function Home() {
       <footer className="site-footer">
         <a className="brand footer-brand" href="#top">
           <BrandMark />
-          <span className="brand-name">Evergreen<small>Electrology</small></span>
+          <span className="brand-name">Evergreen<small>Electrolysis</small></span>
         </a>
         <p>Permanent hair removal, thoughtfully done.</p>
         <div className="footer-meta">
-          <span>© 2027 Evergreen Electrology</span>
+          <span>© 2027 Evergreen Electrolysis</span>
           <span>American Canyon · By appointment</span>
+        </div>
+        <div className="footer-legal">
+          <p>
+            Results and treatment timelines vary by individual and cannot be guaranteed.
+            This website provides general information only and is not medical advice.
+            Services are subject to consultation and individual suitability; consult a
+            qualified healthcare professional about medical conditions or medications.
+          </p>
+          <a href="/concepts/">Compare website designs</a>
         </div>
       </footer>
     </main>

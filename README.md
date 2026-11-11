@@ -1,4 +1,4 @@
-# Evergreen Electrology
+# Evergreen Electrolysis
 
 A responsive site for a private electrology practice in American Canyon,
 California. The site uses launch-ready business copy while the phone, email,
@@ -7,6 +7,8 @@ placeholders for final replacement.
 
 Public site: https://tycheventuresllc.com/canyon-and-vine-electrology/
 
+Design archive: https://tycheventuresllc.com/canyon-and-vine-electrology/concepts/
+
 ## What the mockup includes
 
 - launch-ready positioning and consultation calls to action
@@ -14,6 +16,8 @@ Public site: https://tycheventuresllc.com/canyon-and-vine-electrology/
   and extended-session service concepts
 - common treatment areas and the three electrology modalities
 - consultation and treatment-plan journey
+- an immutable design archive that preserves the original homepage and each alternate concept
+- a concise results, suitability, and medical-information disclaimer
 - time-based appointment structure without invented pricing
 - Nav’s education, completed professional training, licensed-practitioner
   positioning, FAQ, and placeholder contact sections

@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${pathname}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -23,13 +23,13 @@ async function render() {
   );
 }
 
-test("server-renders the launch-ready Evergreen site", async () => {
+test("server-renders the launch-ready Evergreen Electrolysis site", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Evergreen Electrology \| American Canyon, CA<\/title>/i);
+  assert.match(html, /<title>Evergreen Electrolysis \| American Canyon, CA<\/title>/i);
   assert.doesNotMatch(html, /Ever Green/);
   assert.match(html, /Now welcoming clients/);
   assert.match(html, /Feel at home/);
@@ -43,6 +43,8 @@ test("server-renders the launch-ready Evergreen site", async () => {
   assert.match(html, /License # \[ADD NUMBER\]/);
   assert.match(html, /Intimate-area services are not offered/);
   assert.match(html, /Three forms of electrolysis/);
+  assert.match(html, /Results and treatment timelines vary by individual/);
+  assert.match(html, /Compare website designs/);
   assert.match(
     html,
     /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/"/i,
@@ -59,7 +61,7 @@ test("server-renders the launch-ready Evergreen site", async () => {
   );
 });
 
-test("uses the finished Evergreen brand and monochrome design system", async () => {
+test("uses the finished Evergreen Electrolysis brand and monochrome design system", async () => {
   const [page, layout, styles, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
@@ -69,8 +71,8 @@ test("uses the finished Evergreen brand and monochrome design system", async () 
 
   assert.match(page, /Evergreen/);
   assert.doesNotMatch(page, /Ever Green/);
-  assert.match(page, /src="\/brand-mark\.png\?v=ee-wordmark-20260718"/);
-  assert.match(page, /src="\/hero-profile\.jpg\?v=ee-wordmark-20260718"/);
+  assert.match(page, /src="\/brand-mark\.png\?v=ee-electrolysis-20261111"/);
+  assert.match(page, /src="\/hero-profile\.jpg\?v=ee-electrolysis-20261111"/);
   assert.doesNotMatch(page, /Canyon &amp; Vine|Canyon and Vine|>CV</);
   assert.match(styles, /--ink: #0a0a0a/);
   assert.match(styles, /--paper: #fdfdfb/);
@@ -85,5 +87,36 @@ test("uses the finished Evergreen brand and monochrome design system", async () 
 
   await assert.rejects(
     access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)),
+  );
+});
+
+test("preserves the original homepage and renders the design archive and alternate", async () => {
+  const [conceptsResponse, alternateResponse] = await Promise.all([
+    render("/concepts"),
+    render("/concepts/design-02"),
+  ]);
+
+  assert.equal(conceptsResponse.status, 200);
+  assert.equal(alternateResponse.status, 200);
+
+  const [concepts, alternate] = await Promise.all([
+    conceptsResponse.text(),
+    alternateResponse.text(),
+  ]);
+
+  assert.match(concepts, /Website Design Concepts \| Evergreen Electrolysis/);
+  assert.match(concepts, /Classic Monochrome/);
+  assert.match(concepts, /Wine Country Journal/);
+  assert.match(concepts, /New concepts are added without replacing earlier versions/);
+
+  assert.match(alternate, /Wine Country Journal \| Evergreen Electrolysis/);
+  assert.match(alternate, /A quieter way/);
+  assert.match(alternate, /Before your visit/);
+  assert.match(alternate, /After your visit/);
+  assert.match(alternate, /Intimate areas are not offered/);
+  assert.match(alternate, /Results and treatment timelines vary by individual/);
+  assert.doesNotMatch(
+    alternate,
+    /gender[ -]affirming|inclusive|every identity|never gendered|without assumptions|without judgment/i,
   );
 });

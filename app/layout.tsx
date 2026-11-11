@@ -31,7 +31,7 @@ async function getMetadataBase() {
 export async function generateMetadata(): Promise<Metadata> {
   const metadataBase = await getMetadataBase();
   const socialImage = new URL(
-    "/og.png?v=ee-wordmark-20260718",
+    "/og.png?v=ee-electrolysis-20261111",
     metadataBase,
   ).toString();
   const description =
@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
-    title: "Evergreen Electrology | American Canyon, CA",
+    title: "Evergreen Electrolysis | American Canyon, CA",
     description,
     alternates: {
       canonical: publicSiteUrl,
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "PCOS facial hair removal",
     ],
     openGraph: {
-      title: "Evergreen Electrology",
+      title: "Evergreen Electrolysis",
       description:
         "Permanent hair removal, thoughtfully done. Now welcoming clients in American Canyon, California.",
       type: "website",
@@ -63,13 +63,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: socialImage,
           width: 1731,
           height: 909,
-          alt: "Evergreen Electrology — permanent hair removal, thoughtfully done.",
+          alt: "Evergreen Electrolysis — permanent hair removal, thoughtfully done.",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Evergreen Electrology",
+      title: "Evergreen Electrolysis",
       description:
         "Permanent hair removal, thoughtfully done. Now welcoming clients in American Canyon, California.",
       images: [socialImage],
