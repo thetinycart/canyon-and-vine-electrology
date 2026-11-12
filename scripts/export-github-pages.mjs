@@ -137,7 +137,14 @@ const sourceAssets = path.join(clientDirectory, "assets");
 const outputAssets = path.join(outputDirectory, "assets");
 await mkdir(outputAssets, { recursive: true });
 for (const asset of await readdir(sourceAssets)) {
-  if (asset.endsWith(".css") || asset.endsWith(".woff2")) {
+  const publishedPath = `github-pages/assets/${asset}`;
+  if (preservedFiles[publishedPath]) continue;
+  if (asset.endsWith(".css")) {
+    // Vite emits root-relative font URLs; relative URLs work below the Pages
+    // repository path too. Never rewrite an already published stylesheet.
+    const css = await readFile(path.join(sourceAssets, asset), "utf8");
+    await writeFile(path.join(outputAssets, asset), css.replace(/url\((["']?)\/assets\//g, "url($1./"));
+  } else if (asset.endsWith(".woff2")) {
     await cp(path.join(sourceAssets, asset), path.join(outputAssets, asset));
   }
 }

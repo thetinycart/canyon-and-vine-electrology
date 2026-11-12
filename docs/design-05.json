@@ -59,6 +59,7 @@
     "node_tests": "8 passed",
     "desktop_browser": "Safari, 1324px screenshot; navigation and care disclosure passed",
     "mobile_browser": "Safari iframe viewports at 390px and 320px; headline, links, FAQ and consultation readable without horizontal clipping",
-    "keyboard": "FAQ opened with Return and closed with Space; visible focus outline verified in Safari"
+    "keyboard": "FAQ opened with Return and closed with Space; visible focus outline verified in Safari",
+    "font_assets": "Static export rewrites new stylesheet font URLs to relative paths. Regression check resolves every new-concept font URL to an exported file. Prior published stylesheets stay untouched."
   }
 }

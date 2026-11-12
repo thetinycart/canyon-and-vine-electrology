@@ -39,6 +39,12 @@ test("exports Design 05 with working static navigation and self-contained imager
   const exported = await readFile(new URL("../github-pages/everyday-edit-portrait.jpg", import.meta.url));
   assert.deepEqual(original, exported);
   assert.ok(original.length < 500_000, "Hero should stay below 500 KB");
+  const stylesheet = html.match(/rel="stylesheet" href="([^"]+)"/)[1];
+  const css = await readFile(new URL(`../github-pages/${stylesheet.replace("/canyon-and-vine-electrology/", "")}`, import.meta.url), "utf8");
+  assert.doesNotMatch(css, /url\(["']?\/assets\//, "Static font URLs must resolve under the repository path");
+  for (const match of css.matchAll(/url\(["']?(\.\/[^)"']+\.woff2)["']?\)/g)) {
+    await access(new URL(`../github-pages/assets/${match[1]}`, import.meta.url));
+  }
 });
 
 test("exports a self-contained GitHub Pages site", async () => {
