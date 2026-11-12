@@ -26,6 +26,10 @@ const routes = [
     pathname: "/concepts/design-02",
     output: "concepts/design-02/index.html",
   },
+  {
+    pathname: "/concepts/design-03",
+    output: "concepts/design-03/index.html",
+  },
 ];
 
 const workerUrl = pathToFileURL(

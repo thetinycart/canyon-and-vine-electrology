@@ -90,12 +90,16 @@ test("exports a self-contained GitHub Pages site", async () => {
   assert.deepEqual([...publicHero.subarray(-2)], [0xff, 0xd9]);
 });
 
-test("exports the concepts index and alternate design without replacing the homepage", async () => {
-  const [home, concepts, alternate] = await Promise.all([
+test("exports the concepts index and alternate designs without replacing the homepage", async () => {
+  const [home, concepts, alternate, flagship] = await Promise.all([
     readFile(new URL("../github-pages/index.html", import.meta.url), "utf8"),
     readFile(new URL("../github-pages/concepts/index.html", import.meta.url), "utf8"),
     readFile(
       new URL("../github-pages/concepts/design-02/index.html", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../github-pages/concepts/design-03/index.html", import.meta.url),
       "utf8",
     ),
   ]);
@@ -103,8 +107,11 @@ test("exports the concepts index and alternate design without replacing the home
   assert.match(home, /Feel at home/);
   assert.match(concepts, /Classic Monochrome/);
   assert.match(concepts, /Wine Country Journal/);
+  assert.match(concepts, /Portrait of Precision/);
   assert.match(alternate, /A quieter way/);
   assert.match(alternate, /Before your visit/);
+  assert.match(flagship, /Precisely/);
+  assert.match(flagship, /The Evergreen standard/);
   assert.match(
     concepts,
     /href="\/canyon-and-vine-electrology\/concepts\/design-02\/"/,
@@ -113,8 +120,16 @@ test("exports the concepts index and alternate design without replacing the home
     alternate,
     /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-02\/"/,
   );
+  assert.match(
+    concepts,
+    /href="\/canyon-and-vine-electrology\/concepts\/design-03\/"/,
+  );
+  assert.match(
+    flagship,
+    /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-03\/"/,
+  );
 
-  for (const html of [concepts, alternate]) {
+  for (const html of [concepts, alternate, flagship]) {
     assert.doesNotMatch(html, /<script\b/i);
     assert.doesNotMatch(html, /rel="modulepreload"/i);
     assert.doesNotMatch(html, /(?:href|src)="\/assets\//);

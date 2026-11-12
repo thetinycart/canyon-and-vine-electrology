@@ -118,6 +118,19 @@
   color: #171813;
 }
 
+.card:nth-child(3) .preview {
+  background: #4057d6;
+  color: white;
+}
+
+.card:nth-child(3) .preview::after {
+  background: #dafa76;
+  border: 0;
+  opacity: 1;
+  right: -9%;
+  top: -19%;
+}
+
 .preview::after {
   border: 1px solid currentColor;
   border-radius: 50%;

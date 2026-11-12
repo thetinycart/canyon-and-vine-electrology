@@ -29,4 +29,14 @@ export const websiteConcepts: WebsiteConcept[] = [
     released: "November 2026",
     status: "Alternate concept",
   },
+  {
+    id: "03",
+    title: "Portrait of Precision",
+    direction: "Human · science-led · conversion-first",
+    description:
+      "A visually confident flagship concept with larger type, a persistent consultation path, clear treatment education, and Nav’s scientific background at the center.",
+    href: "/concepts/design-03/",
+    released: "November 2026",
+    status: "Alternate concept",
+  },
 ];

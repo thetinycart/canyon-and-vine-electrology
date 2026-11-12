@@ -91,22 +91,26 @@ test("uses the finished Evergreen Electrolysis brand and monochrome design syste
 });
 
 test("preserves the original homepage and renders the design archive and alternate", async () => {
-  const [conceptsResponse, alternateResponse] = await Promise.all([
+  const [conceptsResponse, alternateResponse, flagshipResponse] = await Promise.all([
     render("/concepts"),
     render("/concepts/design-02"),
+    render("/concepts/design-03"),
   ]);
 
   assert.equal(conceptsResponse.status, 200);
   assert.equal(alternateResponse.status, 200);
+  assert.equal(flagshipResponse.status, 200);
 
-  const [concepts, alternate] = await Promise.all([
+  const [concepts, alternate, flagship] = await Promise.all([
     conceptsResponse.text(),
     alternateResponse.text(),
+    flagshipResponse.text(),
   ]);
 
   assert.match(concepts, /Website Design Concepts \| Evergreen Electrolysis/);
   assert.match(concepts, /Classic Monochrome/);
   assert.match(concepts, /Wine Country Journal/);
+  assert.match(concepts, /Portrait of Precision/);
   assert.match(concepts, /New concepts are added without replacing earlier versions/);
 
   assert.match(alternate, /Wine Country Journal \| Evergreen Electrolysis/);
@@ -118,5 +122,17 @@ test("preserves the original homepage and renders the design archive and alterna
   assert.doesNotMatch(
     alternate,
     /gender[ -]affirming|inclusive|every identity|never gendered|without assumptions|without judgment/i,
+  );
+
+  assert.match(flagship, /Portrait of Precision \| Evergreen Electrolysis/);
+  assert.match(flagship, /Precisely/);
+  assert.match(flagship, /Start where you are/);
+  assert.match(flagship, /The Evergreen standard/);
+  assert.match(flagship, /Microbiology from UC Davis/);
+  assert.match(flagship, /California Electrology Academy/);
+  assert.match(flagship, /Results and treatment timelines vary by individual/);
+  assert.match(
+    flagship,
+    /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-03\/"/i,
   );
 });
