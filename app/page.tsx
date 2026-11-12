@@ -191,7 +191,7 @@ export default function Home() {
             <img
               className="hero-photo"
               src="/hero-profile.jpg?v=ee-electrolysis-20261111"
-              alt="Black-and-white editorial portrait of a woman in profile"
+              alt="Black-and-white portrait of a woman in profile"
               width="1003"
               height="1568"
               loading="eager"

@@ -24,6 +24,13 @@ Design archive: https://tycheventuresllc.com/canyon-and-vine-electrology/concept
 - responsive layouts, keyboard focus states, reduced-motion support, and
   search-friendly metadata
 
+## Content conventions
+
+Use naturally descriptive alt text for images. Do not add visible image
+provenance disclaimers, stock/editorial labels, representative-image notices,
+"not a client/result" caveats, or photo-placeholder commentary. This does not
+replace the separate results, suitability, and medical-information disclaimer.
+
 ## Local development
 
 Requires Node.js `>=22.13.0`.

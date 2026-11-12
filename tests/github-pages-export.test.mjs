@@ -165,6 +165,10 @@ test("exports the concepts index and alternate designs without replacing the hom
   );
   assert.match(quiet, /name="robots" content="noindex, follow"/i);
   assert.doesNotMatch(quiet, /hello@example\.com|\(707\) 555|href="tel:/i);
+  assert.doesNotMatch(
+    quiet,
+    /editorial image|representative only|not a client result|not an actual treatment|illustrative image|real portrait of Nav/i,
+  );
 
   const assets = await readdir(new URL("../github-pages/assets/", import.meta.url));
   assert.ok(assets.some((asset) => asset.endsWith(".woff2")));

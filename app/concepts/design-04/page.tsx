@@ -165,7 +165,7 @@ export default function QuietPractice() {
           <img
             className={styles.heroImage}
             src="/quiet-practice-hero.jpg?v=d04-20261111"
-            alt="Editorial portrait of a woman against a deep evergreen background"
+            alt="Portrait of a woman against a deep evergreen background"
             width="1586"
             height="992"
             loading="eager"
@@ -186,7 +186,6 @@ export default function QuietPractice() {
               Start with a conversation, a small test treatment if appropriate, and a clear next step.
             </p>
           </div>
-          <span className={styles.editorialLabel}>Editorial image · not a client result</span>
         </section>
 
         <section className={styles.factBand} aria-label="Practice overview">
@@ -223,12 +222,11 @@ export default function QuietPractice() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/editorial-portrait-v2.jpg?v=d04-20261111"
-              alt="Editorial portrait showing natural skin texture"
+              alt="Portrait showing natural skin texture"
               width="1122"
               height="1402"
               loading="lazy"
             />
-            <figcaption>Editorial image · representative only</figcaption>
           </figure>
           <div className={styles.treatmentCopy}>
             <p className={styles.sectionLabel}>Treatment areas</p>
@@ -283,7 +281,6 @@ export default function QuietPractice() {
           <div className={styles.navHeading}>
             <p className={styles.sectionLabel}>Your electrologist</p>
             <h2 id="nav-title">Meet Nav.</h2>
-            <p className={styles.photoNote}>A real portrait of Nav will be added before launch.</p>
           </div>
           <div className={styles.navCopy}>
             <p className={styles.navLead}>
@@ -330,12 +327,11 @@ export default function QuietPractice() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/electrolysis-detail-v2.jpg?v=d04-20261111"
-              alt="Editorial close-up illustrating probe-based electrolysis at the jawline"
+              alt="Close-up of probe-based electrolysis at the jawline"
               width="1536"
               height="1024"
               loading="lazy"
             />
-            <figcaption>Illustrative image · not an actual treatment at Evergreen</figcaption>
           </figure>
         </section>
 

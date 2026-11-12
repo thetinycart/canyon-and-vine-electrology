@@ -250,16 +250,6 @@
   max-width: 440px;
 }
 
-.editorialLabel {
-  bottom: 1rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.07em;
-  position: absolute;
-  right: 1.2rem;
-  text-transform: uppercase;
-  z-index: 2;
-}
-
 .factBand {
   border-bottom: 1px solid var(--line);
   display: grid;
@@ -354,19 +344,6 @@
   object-fit: cover;
   object-position: center 30%;
   width: 100%;
-}
-
-.treatmentPortrait figcaption,
-.methodImage figcaption {
-  background: var(--bone);
-  bottom: 0;
-  color: var(--evergreen);
-  font-size: 0.68rem;
-  left: 0;
-  letter-spacing: 0.07em;
-  padding: 0.7rem 0.9rem;
-  position: absolute;
-  text-transform: uppercase;
 }
 
 .treatmentCopy {
@@ -541,16 +518,6 @@
 .navSection {
   background: var(--mist);
   scroll-margin-top: 88px;
-}
-
-.photoNote {
-  border-top: 1px solid var(--line);
-  color: #5e675f;
-  font-size: 0.78rem;
-  line-height: 1.5;
-  margin: 2rem 0 0;
-  max-width: 290px;
-  padding-top: 1rem;
 }
 
 .navLead {
@@ -927,13 +894,6 @@
     display: none;
   }
 
-  .editorialLabel {
-    background: rgba(36, 54, 46, 0.86);
-    bottom: auto;
-    padding: 0.4rem 0.55rem;
-    top: 220px;
-  }
-
   .factBand,
   .introduction,
   .navSection,
@@ -1052,10 +1012,6 @@
 
   .heroImage {
     height: 230px;
-  }
-
-  .editorialLabel {
-    top: 200px;
   }
 
   .treatmentList summary {

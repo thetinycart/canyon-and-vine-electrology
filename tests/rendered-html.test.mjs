@@ -151,6 +151,10 @@ test("preserves the original homepage and renders the design archive and alterna
   assert.match(quiet, /Concept preview: a restrained, photograph-led direction/i);
   assert.match(quiet, /property="og:url" content="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-04\/"/i);
   assert.match(quiet, /width="1586" height="992"/i);
+  assert.doesNotMatch(
+    quiet,
+    /editorial image|representative only|not a client result|not an actual treatment|illustrative image|real portrait of Nav/i,
+  );
   assert.match(
     quiet,
     /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-04\/"/i,
