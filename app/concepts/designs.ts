@@ -49,4 +49,14 @@ export const websiteConcepts: WebsiteConcept[] = [
     released: "November 2026",
     status: "Alternate concept",
   },
+  {
+    id: "05",
+    title: "The Everyday Edit",
+    direction: "Warm modern · personal · clear",
+    description:
+      "An apricot-and-burgundy direction with expressive type, a sunlit portrait, clear treatment choices, and a reassuring first-visit guide.",
+    href: "/concepts/design-05/",
+    released: "November 12, 2026",
+    status: "Alternate concept",
+  },
 ];

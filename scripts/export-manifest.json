@@ -1,0 +1,72 @@
+{
+  "routes": [
+    {
+      "pathname": "/",
+      "output": "index.html",
+      "preserve": true
+    },
+    {
+      "pathname": "/concepts",
+      "output": "concepts/index.html"
+    },
+    {
+      "pathname": "/concepts/design-02",
+      "output": "concepts/design-02/index.html",
+      "preserve": true
+    },
+    {
+      "pathname": "/concepts/design-03",
+      "output": "concepts/design-03/index.html",
+      "preserve": true
+    },
+    {
+      "pathname": "/concepts/design-04",
+      "output": "concepts/design-04/index.html",
+      "preserve": true
+    },
+    {
+      "pathname": "/concepts/design-05",
+      "output": "concepts/design-05/index.html",
+      "preserve": true
+    }
+  ],
+  "preservedFiles": {
+    "app/page.tsx": "ce4c3a5eed9ead64db3689089638950a1774735e0e4ba2204b1f2d13ab64e59d",
+    "app/layout.tsx": "8821aa112d7c9d8ac81a76bd134fbba76824425bb88344aaef946e897c70471d",
+    "app/globals.css": "9bae0d86524c2477a0215a71815035b48a2237faa9a8a403cbe90dc5e156b322",
+    "app/concepts/design-02/design02.module.css": "3e81929fcf1614314af65a83136a434329533d4e2aefeabe39755050317ab8f9",
+    "app/concepts/design-02/page.tsx": "11499c3fc1b61d54eec85b54ceb7b9f32b03f8441f4b8c5835a0733f437cacbe",
+    "app/concepts/design-03/design03.module.css": "cd94d7565fdd3a51388b9cf2ca14a0449272affc0971793e1bda7aaa9485adff",
+    "app/concepts/design-03/page.tsx": "38339ae1c270439047e633b599a29b0797ba740ccaeb3155d4cdecc8622c2a59",
+    "app/concepts/design-04/design04.module.css": "f4c64e3c55629829f27efc6413b054dbf660cd2de88ac30c45fac4ff0f9a00ac",
+    "app/concepts/design-04/page.tsx": "ee15a0371e7f57d16d8af3a2ad5439e1b1b6a33bcca5703f6233eef050a9f0c9",
+    "github-pages/electrolysis-detail-v2.jpg": "c96fa9f43fbda8723b150f026ec27d237d3c9da10631f0fe4dfb290393042e06",
+    "github-pages/index.html": "2964a28f9b9866e50b8cf7da09c01d8755f8c1d4e717a766a605545d3ac7ae34",
+    "github-pages/brand-mark.png": "8d3003bf25ea0ff07f1cf9c5e14a1212dcc9cd12b1989243779afb5df4d1c13b",
+    "github-pages/hero-profile.jpg": "3057e0cbf02d13beae2c446f60a9ad2da1601a1b713f114da805cf2de4d45a29",
+    "github-pages/quiet-practice-hero.jpg": "a28cb7617c39a1f5ddad44d9e4c102e227a9c0e24bed1d8779e1c16d29d12f76",
+    "github-pages/404.html": "2964a28f9b9866e50b8cf7da09c01d8755f8c1d4e717a766a605545d3ac7ae34",
+    "github-pages/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "github-pages/og.png": "add94768e610c60d913164fb4a56b86fe397882cae5b90f750cea674111c1dcb",
+    "github-pages/editorial-portrait-v2.jpg": "77685bb6041ddfdda12fdccee458e8ed5964a6ee42157986819e69de306b95d6",
+    "github-pages/concepts/design-02/index.html": "fe72f95c8dd7eced922461d3e3642afd009340ff64d56adde13f6d27a22f79cc",
+    "github-pages/concepts/design-03/index.html": "bb19206662ffa04bda120b6dc5b798d21f27bfe41aa2d7fbc6507dcf819a9e87",
+    "github-pages/concepts/design-04/index.html": "ec109984e47eabb1fadd042fe9240502ab2c528d72345e7d89f5e8460aea78ea",
+    "github-pages/assets/manrope-vietnamese-wght-normal-usUDDRr7.woff2": "6bbb044ab420e07edb0a3042d2eb314b85e83a0182e945a15ab3b9092668dfd5",
+    "github-pages/assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2": "c268b459a9329e59fecf39a17618efd44c71735532048d60b12aab76a8c14914",
+    "github-pages/assets/manrope-latin-wght-normal-DHIcAJRg.woff2": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972",
+    "github-pages/assets/manrope-greek-wght-normal-DL7QRZyv.woff2": "2fb2e8cbfd52ae46179a8b6024eb162f1f9c6de3d22d6e3a30d8f395de7220be",
+    "github-pages/assets/newsreader-latin-ext-wght-normal-C-3rgBeH.woff2": "ac6fa9ed533278f4c8fd3ae44a1fc78c7df736040237ab86fc1160d020af0af2",
+    "github-pages/assets/index-NwZyEz7N.css": "9bca7ca8115bd666f9f6ccca0ef091fa1df123ede42bf1e862af05421b6cf344",
+    "github-pages/assets/newsreader-vietnamese-wght-normal-Czsa-EzN.woff2": "f0dcc9795666850cc4cd8d50d55c44d48d9103cc86f552b4a12f0793eb915840",
+    "github-pages/assets/newsreader-latin-wght-normal-CCVVNp6i.woff2": "62981321d9a3cc7a61a73792729043703fd6112da86e8ec848bb57f088578757",
+    "github-pages/assets/manrope-latin-ext-wght-normal-Ch3YOpNY.woff2": "3911b66d9f2e005a4b989223405d0e5032619c668597ba467cc76a23c8fffcfb",
+    "github-pages/assets/index-Da5-CrcS.css": "5f9279fe2b2c47a3826bb01b208dbd379816f6c9132e963065fac4020592c45b",
+    "app/concepts/design-05/page.tsx": "4be50893ca05624727452ca8305f7b940fc9cb5b8c5189c3cc425fb5f4ab50fe",
+    "app/concepts/design-05/design05.module.css": "f1368b6c5c698cf7e4075c676a0a11112040b7240e34ce3a39422e9f6e8c1db2",
+    "public/everyday-edit-portrait.jpg": "325c2dd18d7fc6947ee60fd2d0e820db9c54bebc723b8d16f8a454305228397d",
+    "github-pages/everyday-edit-portrait.jpg": "325c2dd18d7fc6947ee60fd2d0e820db9c54bebc723b8d16f8a454305228397d",
+    "github-pages/concepts/design-05/index.html": "dce2a41396b5f76d52c033de97bcc5912c885578340f970dcb5521d69205dd5e",
+    "github-pages/assets/index-CEssk_3U.css": "7f8ab1cd67f974343b8b346f59884737116a9fd42b980098904f07c5bf084fb6"
+  }
+}

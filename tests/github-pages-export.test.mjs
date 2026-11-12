@@ -6,6 +6,41 @@ import test from "node:test";
 const expectedUrl =
   "https://tycheventuresllc.com/canyon-and-vine-electrology";
 
+test("keeps every earlier published page, asset, and source byte-for-byte intact", async () => {
+  const manifest = JSON.parse(await readFile(new URL("../scripts/export-manifest.json", import.meta.url), "utf8"));
+  for (const [file, expected] of Object.entries(manifest.preservedFiles)) {
+    const bytes = await readFile(new URL(`../${file}`, import.meta.url));
+    assert.equal(createHash("sha256").update(bytes).digest("hex"), expected, file);
+  }
+});
+
+test("exports Design 05 with working static navigation and self-contained imagery", async () => {
+  const html = await readFile(new URL("../github-pages/concepts/design-05/index.html", import.meta.url), "utf8");
+  const gallery = await readFile(new URL("../github-pages/concepts/index.html", import.meta.url), "utf8");
+  assert.match(gallery, /The Everyday Edit/);
+  assert.match(gallery, /href="\/canyon-and-vine-electrology\/concepts\/design-05\/"/);
+  assert.match(html, /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-05\/"/);
+  assert.match(html, /property="og:image" content="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/everyday-edit-portrait.jpg"/);
+  assert.match(html, /src="\/canyon-and-vine-electrology\/everyday-edit-portrait.jpg"/);
+  assert.doesNotMatch(html, /<script\b|rel="modulepreload"|(?:href|src)="\/(?:assets\/|everyday-edit)/i);
+  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, ids.length, "IDs must be unique");
+  for (const match of html.matchAll(/\bhref="#([^"]+)"/g)) assert.ok(ids.includes(match[1]), `Missing anchor ${match[1]}`);
+  for (const match of html.matchAll(/(?:href|src)="\/canyon-and-vine-electrology\/([^"?#]*)/g)) {
+    const relative = match[1];
+    await access(new URL(`../github-pages/${relative}${relative.endsWith("/") ? "index.html" : ""}`, import.meta.url));
+  }
+  for (const match of html.matchAll(/<img\b[^>]*>/g)) {
+    assert.match(match[0], /alt="[^"]+"/);
+    assert.match(match[0], /width="\d+"/);
+    assert.match(match[0], /height="\d+"/);
+  }
+  const original = await readFile(new URL("../public/everyday-edit-portrait.jpg", import.meta.url));
+  const exported = await readFile(new URL("../github-pages/everyday-edit-portrait.jpg", import.meta.url));
+  assert.deepEqual(original, exported);
+  assert.ok(original.length < 500_000, "Hero should stay below 500 KB");
+});
+
 test("exports a self-contained GitHub Pages site", async () => {
   const html = await readFile(
     new URL("../github-pages/index.html", import.meta.url),

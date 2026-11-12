@@ -1,4 +1,5 @@
-import { cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -19,22 +20,16 @@ const publicSiteUrl =
   process.env.PUBLIC_SITE_URL ??
   "https://tycheventuresllc.com/canyon-and-vine-electrology";
 
-const routes = [
-  { pathname: "/", output: "index.html" },
-  { pathname: "/concepts", output: "concepts/index.html" },
-  {
-    pathname: "/concepts/design-02",
-    output: "concepts/design-02/index.html",
-  },
-  {
-    pathname: "/concepts/design-03",
-    output: "concepts/design-03/index.html",
-  },
-  {
-    pathname: "/concepts/design-04",
-    output: "concepts/design-04/index.html",
-  },
-];
+const { routes, preservedFiles } = JSON.parse(
+  await readFile(new URL("./export-manifest.json", import.meta.url), "utf8"),
+);
+
+// Published pages and their original styles remain byte-for-byte immutable.
+// Fail before exporting if an earlier concept or its source has changed.
+for (const [file, expected] of Object.entries(preservedFiles)) {
+  const actual = createHash("sha256").update(await readFile(path.join(projectRoot, file))).digest("hex");
+  if (actual !== expected) throw new Error(`Published concept changed: ${file}`);
+}
 
 const workerUrl = pathToFileURL(
   path.join(projectRoot, "dist", "server", "index.js"),
@@ -68,7 +63,9 @@ async function renderRoute(route) {
   const routePublicUrl = route.pathname === "/"
     ? `${publicSiteUrl}/`
     : `${publicSiteUrl}${route.pathname}/`;
-  const routeSocialImage = route.pathname === "/concepts/design-04"
+  const routeSocialImage = route.pathname === "/concepts/design-05"
+    ? `${publicSiteUrl}/everyday-edit-portrait.jpg`
+    : route.pathname === "/concepts/design-04"
     ? `${publicSiteUrl}/quiet-practice-hero.jpg?v=d04-20261111`
     : `${publicSiteUrl}/og.png?v=ee-electrolysis-20261111`;
   let html = await response.text();
@@ -80,6 +77,8 @@ async function renderRoute(route) {
     .replaceAll('src="/assets/', `src="${basePath}/assets/`)
     .replaceAll('href="/concepts/', `href="${basePath}/concepts/`)
     .replaceAll('href="/"', `href="${basePath}/"`)
+    .replaceAll('src="/everyday-edit-portrait.jpg"', `src="${basePath}/everyday-edit-portrait.jpg"`)
+    .replaceAll('href="/everyday-edit-portrait.jpg"', `href="${basePath}/everyday-edit-portrait.jpg"`)
     .replaceAll(
       'href="/brand-mark.png?v=ee-electrolysis-20261111"',
       `href="${basePath}/brand-mark.png?v=ee-electrolysis-20261111"`,
@@ -132,7 +131,7 @@ async function renderRoute(route) {
   return html;
 }
 
-await rm(outputDirectory, { recursive: true, force: true });
+// Keep original content-hashed CSS and fonts used by preserved HTML snapshots.
 await mkdir(outputDirectory, { recursive: true });
 const sourceAssets = path.join(clientDirectory, "assets");
 const outputAssets = path.join(outputDirectory, "assets");
@@ -163,12 +162,18 @@ await cp(
   path.join(clientDirectory, "electrolysis-detail-v2.jpg"),
   path.join(outputDirectory, "electrolysis-detail-v2.jpg"),
 );
+await cp(
+  path.join(clientDirectory, "everyday-edit-portrait.jpg"),
+  path.join(outputDirectory, "everyday-edit-portrait.jpg"),
+);
 let rootHtml = "";
 for (const route of routes) {
-  const html = await renderRoute(route);
   const outputPath = path.join(outputDirectory, route.output);
+  const html = route.preserve
+    ? await readFile(outputPath, "utf8")
+    : await renderRoute(route);
   await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, html);
+  if (!route.preserve) await writeFile(outputPath, html);
   if (route.pathname === "/") {
     rootHtml = html;
   }

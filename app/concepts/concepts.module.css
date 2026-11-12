@@ -141,6 +141,21 @@
   opacity: 0.65;
 }
 
+.card:nth-child(5) .preview {
+  background: #f2d3b6;
+  color: #622b37;
+}
+
+.card:nth-child(5) .preview::after {
+  border-radius: 50% 50% 0 0;
+  opacity: 0.4;
+}
+
+.card:nth-child(5) .previewWord {
+  font-family: "Avenir Next", Arial, sans-serif;
+  font-weight: 500;
+}
+
 .preview::after {
   border: 1px solid currentColor;
   border-radius: 50%;

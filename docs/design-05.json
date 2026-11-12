@@ -1,0 +1,64 @@
+{
+  "concept": "05",
+  "name": "The Everyday Edit",
+  "date": "2026-11-12",
+  "direction": "Warm modern care: apricot, burgundy and soft olive; an arched sunlit portrait, large sans typography with italic serif accents, open treatment rows and a clear first-visit progression.",
+  "intent": "Make a personal service easy to understand: what is treated, who provides care, what the first visit involves, and which practical details remain to be confirmed.",
+  "sources_reviewed": [
+    {
+      "url": "https://www.permanentchoice.com/services/your-first-visit",
+      "used_for": "A separate, clearly explained new-client consultation path; no borrowed prices, policies or additional services."
+    },
+    {
+      "url": "https://www.smoothforeverelectrolysis.com/services",
+      "used_for": "Specific treatment-area descriptions with a nearby consultation path; Evergreen scope kept separate."
+    },
+    {
+      "url": "https://monasterymade.com/",
+      "used_for": "Premium visual restraint, natural imagery and editorial pacing."
+    },
+    {
+      "url": "https://www.heydayskincare.com/",
+      "used_for": "Approachable service language and repeated, clear next-step navigation."
+    },
+    {
+      "url": "https://www.ohsu.edu/cosmetic-plastics-services/electrolysis-faqs",
+      "used_for": "Hair/skin color independence, fine-probe process and individual multi-visit planning."
+    },
+    {
+      "url": "https://www.barbercosmo.ca.gov/forms_pubs/publications/electrology.pdf",
+      "used_for": "California consumer guidance, electrology definition, expected redness and medical escalation for severe symptoms."
+    },
+    {
+      "url": "https://my.clevelandclinic.org/health/treatments/8306-electrolysis",
+      "used_for": "Treatment sensation, series of visits, consultation and aftercare context."
+    }
+  ],
+  "business_facts": "User-provided practice details and existing approved website: American Canyon; Nav, California-licensed electrologist; bachelor’s in Microbiology, UC Davis; completed professional training at California Electrology Academy, Corona; face and selected body areas; no intimate-area services.",
+  "placeholders": [
+    "prices",
+    "address",
+    "phone",
+    "hours",
+    "license number",
+    "booking destination"
+  ],
+  "image": {
+    "file": "public/everyday-edit-portrait.jpg",
+    "mode": "Built-in image_gen tool",
+    "dimensions": [
+      1122,
+      1402
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: portrait photograph for a premium electrolysis website, paired beside headline on a warm apricot background. Create one beautiful natural-light portrait of an adult woman in her early 40s with warm medium-brown skin, dark wavy hair loosely tucked back, wearing a simple ivory linen boat-neck blouse. She has a relaxed, candid soft smile, looking slightly past the camera; authentic pores and fine facial lines, minimal makeup. Waist-up or shoulders-to-crown composition, face centered with ample warm cream backdrop and some soft sunlight from the side. Beautiful long afternoon shadows across a textured plaster background. Intimate medium-format photography, sophisticated California sensibility, gentle film grain, muted honey and cream palette, not glossy advertising. Vertical 4:5 composition. No text, no logos, no graphics, no equipment, no before/after comparison."
+  },
+  "preservation": "The export manifest hashes original homepage and Designs 02–04 source plus published HTML/assets. Static export retains their snapshots and original content-hashed CSS. New page uses its own CSS module; earlier app pages and globals are unchanged. Original published GitHub CSS used index-Da5-CrcS.css; old HTML snapshots were synchronized to that live filename after verifying all text/tags otherwise identical. Every earlier image and font was checked against the live site and matched.",
+  "checks": {
+    "build": "passed",
+    "lint": "passed",
+    "node_tests": "8 passed",
+    "desktop_browser": "Safari, 1324px screenshot; navigation and care disclosure passed",
+    "mobile_browser": "Safari iframe viewports at 390px and 320px; headline, links, FAQ and consultation readable without horizontal clipping",
+    "keyboard": "FAQ opened with Return and closed with Space; visible focus outline verified in Safari"
+  }
+}
