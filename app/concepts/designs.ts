@@ -39,4 +39,14 @@ export const websiteConcepts: WebsiteConcept[] = [
     released: "November 2026",
     status: "Alternate concept",
   },
+  {
+    id: "04",
+    title: "The Quiet Practice",
+    direction: "Photograph-led · restrained · specific",
+    description:
+      "A premium editorial direction with a disciplined evergreen palette, practical treatment guidance, a shorter decision path, and an honest consultation preview.",
+    href: "/concepts/design-04/",
+    released: "November 2026",
+    status: "Alternate concept",
+  },
 ];

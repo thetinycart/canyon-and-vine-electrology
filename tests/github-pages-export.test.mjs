@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 const expectedUrl =
@@ -91,7 +91,7 @@ test("exports a self-contained GitHub Pages site", async () => {
 });
 
 test("exports the concepts index and alternate designs without replacing the homepage", async () => {
-  const [home, concepts, alternate, flagship] = await Promise.all([
+  const [home, concepts, alternate, flagship, quiet] = await Promise.all([
     readFile(new URL("../github-pages/index.html", import.meta.url), "utf8"),
     readFile(new URL("../github-pages/concepts/index.html", import.meta.url), "utf8"),
     readFile(
@@ -102,16 +102,23 @@ test("exports the concepts index and alternate designs without replacing the hom
       new URL("../github-pages/concepts/design-03/index.html", import.meta.url),
       "utf8",
     ),
+    readFile(
+      new URL("../github-pages/concepts/design-04/index.html", import.meta.url),
+      "utf8",
+    ),
   ]);
 
   assert.match(home, /Feel at home/);
   assert.match(concepts, /Classic Monochrome/);
   assert.match(concepts, /Wine Country Journal/);
   assert.match(concepts, /Portrait of Precision/);
+  assert.match(concepts, /The Quiet Practice/);
   assert.match(alternate, /A quieter way/);
   assert.match(alternate, /Before your visit/);
   assert.match(flagship, /Precisely/);
   assert.match(flagship, /The Evergreen standard/);
+  assert.match(quiet, /Permanent hair removal/);
+  assert.match(quiet, /A plan made for you/);
   assert.match(
     concepts,
     /href="\/canyon-and-vine-electrology\/concepts\/design-02\/"/,
@@ -128,8 +135,50 @@ test("exports the concepts index and alternate designs without replacing the hom
     flagship,
     /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-03\/"/,
   );
+  assert.match(
+    concepts,
+    /href="\/canyon-and-vine-electrology\/concepts\/design-04\/"/,
+  );
+  assert.match(
+    quiet,
+    /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-04\/"/,
+  );
+  assert.match(
+    quiet,
+    /src="\/canyon-and-vine-electrology\/quiet-practice-hero\.jpg\?v=d04-20261111"/,
+  );
+  assert.match(
+    quiet,
+    /href="\/canyon-and-vine-electrology\/quiet-practice-hero\.jpg\?v=d04-20261111"/,
+  );
+  assert.doesNotMatch(
+    quiet,
+    /(?:href|src)="\/quiet-practice-hero\.jpg\?v=d04-20261111"/,
+  );
+  assert.match(
+    quiet,
+    /property="og:url" content="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-04\/"/,
+  );
+  assert.match(
+    quiet,
+    /property="og:image" content="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/quiet-practice-hero\.jpg\?v=d04-20261111"/,
+  );
+  assert.match(quiet, /name="robots" content="noindex, follow"/i);
+  assert.doesNotMatch(quiet, /hello@example\.com|\(707\) 555|href="tel:/i);
 
-  for (const html of [concepts, alternate, flagship]) {
+  const assets = await readdir(new URL("../github-pages/assets/", import.meta.url));
+  assert.ok(assets.some((asset) => asset.endsWith(".woff2")));
+  const exportedCss = (
+    await Promise.all(
+      assets
+        .filter((asset) => asset.endsWith(".css"))
+        .map((asset) => readFile(new URL(`../github-pages/assets/${asset}`, import.meta.url), "utf8")),
+    )
+  ).join("\n");
+  assert.match(exportedCss, /Newsreader Variable/);
+  assert.match(exportedCss, /Manrope Variable/);
+
+  for (const html of [concepts, alternate, flagship, quiet]) {
     assert.doesNotMatch(html, /<script\b/i);
     assert.doesNotMatch(html, /rel="modulepreload"/i);
     assert.doesNotMatch(html, /(?:href|src)="\/assets\//);

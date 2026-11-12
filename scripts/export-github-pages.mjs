@@ -30,6 +30,10 @@ const routes = [
     pathname: "/concepts/design-03",
     output: "concepts/design-03/index.html",
   },
+  {
+    pathname: "/concepts/design-04",
+    output: "concepts/design-04/index.html",
+  },
 ];
 
 const workerUrl = pathToFileURL(
@@ -64,6 +68,9 @@ async function renderRoute(route) {
   const routePublicUrl = route.pathname === "/"
     ? `${publicSiteUrl}/`
     : `${publicSiteUrl}${route.pathname}/`;
+  const routeSocialImage = route.pathname === "/concepts/design-04"
+    ? `${publicSiteUrl}/quiet-practice-hero.jpg?v=d04-20261111`
+    : `${publicSiteUrl}/og.png?v=ee-electrolysis-20261111`;
   let html = await response.text();
 
   html = html
@@ -89,13 +96,33 @@ async function renderRoute(route) {
       'src="/hero-profile.jpg?v=ee-electrolysis-20261111"',
       `src="${basePath}/hero-profile.jpg?v=ee-electrolysis-20261111"`,
     )
+    .replaceAll(
+      'src="/quiet-practice-hero.jpg?v=d04-20261111"',
+      `src="${basePath}/quiet-practice-hero.jpg?v=d04-20261111"`,
+    )
+    .replaceAll(
+      'href="/quiet-practice-hero.jpg?v=d04-20261111"',
+      `href="${basePath}/quiet-practice-hero.jpg?v=d04-20261111"`,
+    )
+    .replaceAll(
+      'src="/editorial-portrait-v2.jpg?v=d04-20261111"',
+      `src="${basePath}/editorial-portrait-v2.jpg?v=d04-20261111"`,
+    )
+    .replaceAll(
+      'src="/electrolysis-detail-v2.jpg?v=d04-20261111"',
+      `src="${basePath}/electrolysis-detail-v2.jpg?v=d04-20261111"`,
+    )
     .replace(
       /(<meta property="og:image" content=")[^"]+("\/?>)/,
-      `$1${publicSiteUrl}/og.png?v=ee-electrolysis-20261111$2`,
+      `$1${routeSocialImage}$2`,
     )
     .replace(
       /(<meta name="twitter:image" content=")[^"]+("\/?>)/,
-      `$1${publicSiteUrl}/og.png?v=ee-electrolysis-20261111$2`,
+      `$1${routeSocialImage}$2`,
+    )
+    .replace(
+      /(<meta property="og:url" content=")[^"]+("\/?>)/,
+      `$1${routePublicUrl}$2`,
     )
     .replace(
       /(<link rel="canonical" href=")[^"]+("\/?>)/,
@@ -111,7 +138,7 @@ const sourceAssets = path.join(clientDirectory, "assets");
 const outputAssets = path.join(outputDirectory, "assets");
 await mkdir(outputAssets, { recursive: true });
 for (const asset of await readdir(sourceAssets)) {
-  if (asset.endsWith(".css")) {
+  if (asset.endsWith(".css") || asset.endsWith(".woff2")) {
     await cp(path.join(sourceAssets, asset), path.join(outputAssets, asset));
   }
 }
@@ -123,6 +150,18 @@ await cp(
 await cp(
   path.join(clientDirectory, "hero-profile.jpg"),
   path.join(outputDirectory, "hero-profile.jpg"),
+);
+await cp(
+  path.join(clientDirectory, "quiet-practice-hero.jpg"),
+  path.join(outputDirectory, "quiet-practice-hero.jpg"),
+);
+await cp(
+  path.join(clientDirectory, "editorial-portrait-v2.jpg"),
+  path.join(outputDirectory, "editorial-portrait-v2.jpg"),
+);
+await cp(
+  path.join(clientDirectory, "electrolysis-detail-v2.jpg"),
+  path.join(outputDirectory, "electrolysis-detail-v2.jpg"),
 );
 let rootHtml = "";
 for (const route of routes) {

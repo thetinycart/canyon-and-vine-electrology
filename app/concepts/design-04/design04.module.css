@@ -1,0 +1,1078 @@
+.page {
+  --bone: #f2efe7;
+  --evergreen: #24362e;
+  --ink: #202923;
+  --moss: #5f6d60;
+  --mist: #e3e6dd;
+  --paper: #faf8f2;
+  --line: rgba(36, 54, 46, 0.2);
+  --display: "Newsreader Variable", "Iowan Old Style", Baskerville, serif;
+  --sans: "Manrope Variable", "Avenir Next", "Helvetica Neue", sans-serif;
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+}
+
+.page * {
+  box-sizing: border-box;
+}
+
+.page a:focus-visible,
+.page summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.skipLink {
+  background: var(--paper);
+  color: var(--evergreen);
+  font-weight: 600;
+  left: 1rem;
+  padding: 0.9rem 1.1rem;
+  position: fixed;
+  top: -100px;
+  z-index: 100;
+}
+
+.skipLink:focus {
+  top: 1rem;
+}
+
+.conceptBar {
+  align-items: center;
+  background: var(--evergreen);
+  color: white;
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 600;
+  justify-content: space-between;
+  letter-spacing: 0.08em;
+  min-height: 36px;
+  padding: 0.55rem clamp(1.25rem, 3.4vw, 3rem);
+  text-transform: uppercase;
+}
+
+.conceptBar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header {
+  align-items: center;
+  background: rgba(242, 239, 231, 0.96);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr auto 1fr;
+  min-height: 88px;
+  padding: 0 clamp(1.25rem, 3.4vw, 3rem);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.brand {
+  color: var(--evergreen);
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+  text-decoration: none;
+}
+
+.brand > span {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  letter-spacing: -0.035em;
+  line-height: 0.8;
+}
+
+.brand small {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  margin-top: 0.65rem;
+  text-transform: uppercase;
+}
+
+.desktopNav {
+  display: flex;
+  gap: clamp(1.3rem, 2.2vw, 2.6rem);
+}
+
+.desktopNav a {
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.headerCta,
+.primaryButton,
+.previewButton {
+  align-items: center;
+  border: 1px solid var(--evergreen);
+  border-radius: 0;
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 600;
+  gap: 1.2rem;
+  justify-content: center;
+  letter-spacing: 0.03em;
+  min-height: 52px;
+  padding: 0.8rem 1.35rem;
+  text-decoration: none;
+}
+
+.headerCta {
+  background: var(--evergreen);
+  color: white;
+  justify-self: end;
+}
+
+.mobileMenuToggle,
+.mobileMenuPanel {
+  display: none;
+}
+
+.hero {
+  color: white;
+  height: min(740px, calc(100vh - 124px));
+  min-height: 580px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::after {
+  background: linear-gradient(90deg, rgba(17, 31, 25, 0.22), transparent 56%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.heroImage {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  width: 100%;
+}
+
+.heroCopy {
+  left: clamp(1.5rem, 5vw, 5.5rem);
+  max-width: 670px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-48%);
+  z-index: 2;
+}
+
+.eyebrow,
+.sectionLabel,
+.sectionLabelLight {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  margin: 0 0 1.7rem;
+  text-transform: uppercase;
+}
+
+.sectionLabelLight {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero h1,
+.introduction h2,
+.treatment h2,
+.firstVisit h2,
+.navSection h2,
+.method h2,
+.careStandards h2,
+.questions h2,
+.contact h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.hero h1 {
+  font-size: clamp(4rem, 6.6vw, 6.4rem);
+  max-width: 670px;
+}
+
+.heroLede {
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.6;
+  margin: 1.6rem 0 0;
+  max-width: 470px;
+}
+
+.heroActions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-top: 1.9rem;
+}
+
+.primaryButton {
+  background: var(--bone);
+  border-color: var(--bone);
+  color: var(--evergreen);
+}
+
+.primaryButton:hover,
+.headerCta:hover {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: white;
+}
+
+.secondaryLink {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  font-size: 0.86rem;
+  font-weight: 500;
+  padding: 0.5rem 0 0.35rem;
+  text-decoration: none;
+}
+
+.heroNote {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 1.4rem 0 0;
+  max-width: 440px;
+}
+
+.editorialLabel {
+  bottom: 1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  position: absolute;
+  right: 1.2rem;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.factBand {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 82px;
+  padding: 0 clamp(1.25rem, 3.4vw, 3rem);
+}
+
+.factBand p {
+  align-items: center;
+  display: flex;
+  font-family: var(--display);
+  font-size: 1.08rem;
+  margin: 0;
+  padding: 1.4rem 0;
+}
+
+.factBand p + p {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(1.5rem, 4vw, 4rem);
+}
+
+.introduction,
+.navSection,
+.careStandards,
+.questions,
+.contact {
+  display: grid;
+  gap: clamp(3rem, 8vw, 8rem);
+  grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr);
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: clamp(6rem, 9vw, 9rem) clamp(1.25rem, 6vw, 6rem);
+}
+
+.introduction h2,
+.treatment h2,
+.firstVisit h2,
+.navSection h2,
+.method h2,
+.careStandards h2,
+.questions h2,
+.contact h2 {
+  font-size: clamp(3.1rem, 5vw, 5rem);
+}
+
+.introCopy > p,
+.navCopy > p,
+.methodCopy > p,
+.contactCopy > p:not(.sectionLabel):not(.previewNotice) {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin: 0 0 1.4rem;
+  max-width: 700px;
+}
+
+.inlineFacts {
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.2rem;
+  margin-top: 2.2rem;
+  padding-top: 1.2rem;
+}
+
+.inlineFacts span,
+.methodFacts span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.treatment {
+  background: var(--paper);
+  display: grid;
+  grid-template-columns: minmax(340px, 0.82fr) minmax(0, 1.18fr);
+  margin: 0 auto;
+  max-width: 1440px;
+  scroll-margin-top: 88px;
+}
+
+.treatmentPortrait {
+  margin: 0;
+  min-height: 780px;
+  overflow: hidden;
+  position: relative;
+}
+
+.treatmentPortrait img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  width: 100%;
+}
+
+.treatmentPortrait figcaption,
+.methodImage figcaption {
+  background: var(--bone);
+  bottom: 0;
+  color: var(--evergreen);
+  font-size: 0.68rem;
+  left: 0;
+  letter-spacing: 0.07em;
+  padding: 0.7rem 0.9rem;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.treatmentCopy {
+  align-self: center;
+  padding: clamp(4rem, 7vw, 7rem);
+}
+
+.treatmentIntro {
+  font-size: 1.06rem;
+  line-height: 1.7;
+  margin: 1.8rem 0 2.3rem;
+  max-width: 620px;
+}
+
+.treatmentList {
+  border-top: 1px solid var(--line);
+}
+
+.treatmentList details {
+  border-bottom: 1px solid var(--line);
+}
+
+.treatmentList summary {
+  align-items: center;
+  cursor: pointer;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 36px 1fr auto;
+  list-style: none;
+  min-height: 78px;
+  padding: 0.8rem 0;
+}
+
+.treatmentList summary::-webkit-details-marker,
+.questionList summary::-webkit-details-marker {
+  display: none;
+}
+
+.treatmentList summary > span:first-child {
+  color: var(--moss);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.treatmentList summary strong {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.treatmentList summary > span:last-child,
+.questionList summary > span:last-child {
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: transform 180ms ease;
+}
+
+.treatmentList details[open] summary > span:last-child,
+.questionList details[open] summary > span:last-child {
+  transform: rotate(45deg);
+}
+
+.treatmentList details > div {
+  padding: 0 2rem 1.5rem 3.25rem;
+}
+
+.treatmentList details p {
+  color: #4f5a53;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.treatmentList details a,
+.guidanceLink {
+  border-bottom: 1px solid currentColor;
+  color: var(--evergreen);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 600;
+  gap: 1rem;
+  padding-bottom: 0.3rem;
+  text-decoration: none;
+}
+
+.hormonalNote {
+  color: #5b645e;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  margin: 1.5rem 0 0;
+}
+
+.firstVisit {
+  background: var(--evergreen);
+  color: white;
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  grid-template-columns: minmax(280px, 0.72fr) minmax(360px, 1.1fr);
+  padding: clamp(6rem, 8vw, 8rem) clamp(1.25rem, 6vw, 6rem);
+  scroll-margin-top: 88px;
+}
+
+.visitIntro > p:last-child {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.04rem;
+  line-height: 1.7;
+  margin: 1.8rem 0 0;
+  max-width: 480px;
+}
+
+.visitList {
+  border-top: 1px solid rgba(255, 255, 255, 0.23);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.visitList li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 32px 1fr;
+  padding: 1.45rem 0;
+}
+
+.visitList li > span {
+  color: #b7c0b3;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding-top: 0.3rem;
+}
+
+.visitList h3 {
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.visitList p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.65;
+  margin: 0.55rem 0 0;
+}
+
+.visitDetails {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  grid-column: 2;
+  padding: 1.5rem;
+}
+
+.visitDetails > span {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.visitDetails p {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin: 1rem 0 1.2rem;
+}
+
+.visitDetails strong {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.84rem;
+  font-weight: 400;
+}
+
+.navSection {
+  background: var(--mist);
+  scroll-margin-top: 88px;
+}
+
+.photoNote {
+  border-top: 1px solid var(--line);
+  color: #5e675f;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin: 2rem 0 0;
+  max-width: 290px;
+  padding-top: 1rem;
+}
+
+.navLead {
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 2.2vw, 2rem) !important;
+  line-height: 1.45 !important;
+}
+
+.credentials {
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0 0;
+}
+
+.credentials > div {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 170px 1fr;
+  padding: 1.1rem 0;
+}
+
+.credentials dt {
+  color: #5d665f;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.credentials dd {
+  margin: 0;
+}
+
+.method {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(340px, 1.18fr);
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.methodCopy {
+  align-self: center;
+  padding: clamp(5rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.methodCopy > p {
+  font-size: 1.02rem !important;
+}
+
+.methodFacts {
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 2rem 0;
+  padding: 1.2rem 0;
+}
+
+.methodImage {
+  margin: 0;
+  min-height: 660px;
+  overflow: hidden;
+  position: relative;
+}
+
+.methodImage img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% center;
+  width: 100%;
+}
+
+.careStandards {
+  border-top: 1px solid var(--line);
+}
+
+.careStandards ul {
+  border-top: 1px solid var(--line);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.careStandards li {
+  border-bottom: 1px solid var(--line);
+  font-family: var(--display);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  padding: 1.15rem 0;
+}
+
+.questions {
+  background: var(--paper);
+  max-width: none;
+  scroll-margin-top: 88px;
+}
+
+.questionsHeading > p:last-child {
+  color: #58625a;
+  line-height: 1.7;
+  margin: 1.6rem 0 0;
+}
+
+.questionList {
+  border-top: 1px solid var(--line);
+}
+
+.questionList details {
+  border-bottom: 1px solid var(--line);
+}
+
+.questionList summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  gap: 1.5rem;
+  justify-content: space-between;
+  list-style: none;
+  min-height: 80px;
+  padding: 0.9rem 0;
+}
+
+.questionList details > p {
+  color: #4f5952;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin: 0 3rem 1.5rem 0;
+  max-width: 720px;
+}
+
+.contact {
+  align-items: end;
+  scroll-margin-top: 88px;
+}
+
+.previewButton {
+  background: var(--evergreen);
+  color: white;
+  margin-top: 1rem;
+}
+
+.previewNotice {
+  color: #5b655d;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  margin: 1rem 0 0;
+}
+
+.contactDetails {
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+.contactDetails > div {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: 120px 1fr;
+  padding: 1.2rem 0;
+}
+
+.contactDetails dt {
+  color: #5d665f;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contactDetails dd {
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer {
+  background: var(--evergreen);
+  color: white;
+  padding: clamp(4rem, 7vw, 7rem) clamp(1.25rem, 3.4vw, 3rem) 2rem;
+}
+
+.footerWordmark {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  font-family: var(--display);
+  font-size: clamp(5rem, 14vw, 13rem);
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+  overflow: hidden;
+  padding-bottom: 2.5rem;
+}
+
+.footerLower {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 0.7fr 1.3fr;
+  padding-top: 2rem;
+}
+
+.footerLower > p:first-child {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.disclaimer {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 720px;
+}
+
+.footerLower > div {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  font-size: 0.76rem;
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  padding-top: 1.1rem;
+}
+
+.footerLower a {
+  color: white;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 1040px) {
+  .header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .desktopNav,
+  .headerCta {
+    display: none;
+  }
+
+  .mobileMenuToggle {
+    color: var(--ink);
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 600;
+    justify-self: end;
+    padding: 0.8rem 0;
+    text-decoration: none;
+  }
+
+  .mobileMenuPanel {
+    background: var(--bone);
+    border: 1px solid var(--line);
+    flex-direction: column;
+    min-width: min(320px, calc(100vw - 2.5rem));
+    padding: 1.2rem;
+    position: absolute;
+    right: clamp(1.25rem, 3.4vw, 3rem);
+    top: calc(100% - 0.35rem);
+  }
+
+  .mobileMenuPanel:target {
+    display: flex;
+  }
+
+  .mobileMenuPanel a {
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.3rem;
+    padding: 0.9rem 0;
+    text-decoration: none;
+  }
+
+  .mobileMenuPanel .mobileMenuClose {
+    align-items: center;
+    display: flex;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    justify-content: space-between;
+    letter-spacing: 0.08em;
+    padding-top: 0;
+    text-transform: uppercase;
+  }
+
+  .heroCopy {
+    max-width: 580px;
+  }
+
+  .introduction,
+  .navSection,
+  .careStandards,
+  .questions,
+  .contact {
+    gap: 3rem;
+    grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.25fr);
+  }
+
+  .treatmentPortrait {
+    min-height: 650px;
+  }
+
+  .treatmentCopy {
+    padding: 4rem 3rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .conceptBar span:nth-child(2) {
+    display: none;
+  }
+
+  .header {
+    min-height: 72px;
+  }
+
+  .brand > span {
+    font-size: 1.55rem;
+  }
+
+  .hero {
+    background: var(--evergreen);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero::after {
+    display: none;
+  }
+
+  .heroImage {
+    height: 250px;
+    object-position: 67% 30%;
+    position: relative;
+  }
+
+  .heroCopy {
+    background: var(--evergreen);
+    left: auto;
+    max-width: none;
+    padding: 1.8rem 1.25rem 2.25rem;
+    position: relative;
+    top: auto;
+    transform: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.85rem, 12vw, 3.7rem);
+  }
+
+  .heroLede {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 1.25rem;
+  }
+
+  .primaryButton {
+    width: 100%;
+  }
+
+  .secondaryLink {
+    align-self: flex-start;
+  }
+
+  .heroNote {
+    display: none;
+  }
+
+  .editorialLabel {
+    background: rgba(36, 54, 46, 0.86);
+    bottom: auto;
+    padding: 0.4rem 0.55rem;
+    top: 220px;
+  }
+
+  .factBand,
+  .introduction,
+  .navSection,
+  .careStandards,
+  .questions,
+  .contact,
+  .treatment,
+  .firstVisit,
+  .method {
+    grid-template-columns: 1fr;
+  }
+
+  .factBand p + p {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+  }
+
+  .introduction,
+  .navSection,
+  .careStandards,
+  .questions,
+  .contact {
+    padding: 3.25rem 1.25rem;
+  }
+
+  .introduction h2,
+  .treatment h2,
+  .firstVisit h2,
+  .navSection h2,
+  .method h2,
+  .careStandards h2,
+  .questions h2,
+  .contact h2 {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+  }
+
+  .inlineFacts {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .treatmentPortrait {
+    min-height: 0;
+  }
+
+  .treatmentPortrait img {
+    display: block;
+    height: 260px;
+    object-position: center 28%;
+  }
+
+  .treatmentCopy {
+    padding: 3.25rem 1.25rem;
+  }
+
+  .treatmentList details > div {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .firstVisit {
+    padding: 3.25rem 1.25rem;
+  }
+
+  .visitDetails {
+    grid-column: 1;
+  }
+
+  .credentials > div,
+  .contactDetails > div {
+    grid-template-columns: 1fr;
+  }
+
+  .methodCopy {
+    padding: 3.25rem 1.25rem;
+  }
+
+  .methodImage {
+    min-height: 0;
+  }
+
+  .methodImage img {
+    display: block;
+    height: 260px;
+  }
+
+  .treatmentList summary,
+  .questionList summary {
+    min-height: 68px;
+  }
+
+  .questionList details > p {
+    margin-right: 0;
+  }
+
+  .footerLower {
+    grid-template-columns: 1fr;
+  }
+
+  .footerLower > div {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .conceptBar {
+    font-size: 0.64rem;
+  }
+
+  .conceptBar span:last-child {
+    max-width: 190px;
+    text-align: right;
+  }
+
+  .heroImage {
+    height: 230px;
+  }
+
+  .editorialLabel {
+    top: 200px;
+  }
+
+  .treatmentList summary {
+    grid-template-columns: 30px 1fr auto;
+  }
+
+  .treatmentList summary strong {
+    font-size: 1.32rem;
+  }
+
+  .footerWordmark {
+    font-size: 20vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page * {
+    transition: none !important;
+  }
+}

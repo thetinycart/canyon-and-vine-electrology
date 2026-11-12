@@ -91,26 +91,30 @@ test("uses the finished Evergreen Electrolysis brand and monochrome design syste
 });
 
 test("preserves the original homepage and renders the design archive and alternate", async () => {
-  const [conceptsResponse, alternateResponse, flagshipResponse] = await Promise.all([
+  const [conceptsResponse, alternateResponse, flagshipResponse, quietResponse] = await Promise.all([
     render("/concepts"),
     render("/concepts/design-02"),
     render("/concepts/design-03"),
+    render("/concepts/design-04"),
   ]);
 
   assert.equal(conceptsResponse.status, 200);
   assert.equal(alternateResponse.status, 200);
   assert.equal(flagshipResponse.status, 200);
+  assert.equal(quietResponse.status, 200);
 
-  const [concepts, alternate, flagship] = await Promise.all([
+  const [concepts, alternate, flagship, quiet] = await Promise.all([
     conceptsResponse.text(),
     alternateResponse.text(),
     flagshipResponse.text(),
+    quietResponse.text(),
   ]);
 
   assert.match(concepts, /Website Design Concepts \| Evergreen Electrolysis/);
   assert.match(concepts, /Classic Monochrome/);
   assert.match(concepts, /Wine Country Journal/);
   assert.match(concepts, /Portrait of Precision/);
+  assert.match(concepts, /The Quiet Practice/);
   assert.match(concepts, /New concepts are added without replacing earlier versions/);
 
   assert.match(alternate, /Wine Country Journal \| Evergreen Electrolysis/);
@@ -134,5 +138,21 @@ test("preserves the original homepage and renders the design archive and alterna
   assert.match(
     flagship,
     /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-03\/"/i,
+  );
+
+  assert.match(quiet, /The Quiet Practice \| Evergreen Electrolysis/);
+  assert.match(quiet, /Permanent hair removal/);
+  assert.match(quiet, /A plan made for you/);
+  assert.match(quiet, /What would you like to focus on/);
+  assert.match(quiet, /Meet Nav/);
+  assert.match(quiet, /Concept preview: appointment requests are not sent/);
+  assert.doesNotMatch(quiet, /hello@example\.com|\(707\) 555|href="tel:/i);
+  assert.match(quiet, /name="robots" content="noindex, follow"/i);
+  assert.match(quiet, /Concept preview: a restrained, photograph-led direction/i);
+  assert.match(quiet, /property="og:url" content="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-04\/"/i);
+  assert.match(quiet, /width="1586" height="992"/i);
+  assert.match(
+    quiet,
+    /rel="canonical" href="https:\/\/tycheventuresllc\.com\/canyon-and-vine-electrology\/concepts\/design-04\/"/i,
   );
 });
